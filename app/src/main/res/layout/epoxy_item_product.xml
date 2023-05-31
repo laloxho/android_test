@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="io.parrotsoftware.qatest.ui.list.EnabledProduct" />
+            type="io.parrotsoftware.qatest.presentation.list.EnabledProduct" />
 
         <variable
             name="onClick"

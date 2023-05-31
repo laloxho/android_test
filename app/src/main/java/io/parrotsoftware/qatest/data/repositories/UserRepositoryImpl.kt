@@ -1,34 +1,28 @@
 package io.parrotsoftware.qatest.data.repositories
 
-import io.parrotsoftware.qa_network.domain.requests.ApiAuthRequest
-import io.parrotsoftware.qa_network.interactors.NetworkInteractor
-import io.parrotsoftware.qa_network.services.ParrotApi
-import io.parrotsoftware.qatest.data.domain.Credentials
-import io.parrotsoftware.qatest.data.domain.RepositoryResult
-import io.parrotsoftware.qatest.data.domain.Store
-import io.parrotsoftware.qatest.data.managers.UserManager
+import io.parrotsoftware.qatest.data.datasource.local.impl.UserLocalDataSourceImpl
+import io.parrotsoftware.qatest.data.datasource.remote.UserRemoteDataSource
+import io.parrotsoftware.qatest.domain.models.RepositoryResult
+import io.parrotsoftware.qatest.domain.models.Credentials
+import io.parrotsoftware.qatest.domain.models.Store
 import io.parrotsoftware.qatest.domain.repositories.UserRepository
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val userManager: UserManager,
-    private val networkInteractor: NetworkInteractor
+    private val userLocalDataSource: UserLocalDataSourceImpl,
+    private val userRemoteDataSource: UserRemoteDataSource
 ) : UserRepository {
 
     override suspend fun login(email: String, password: String): RepositoryResult<Nothing> {
-        val responseAuth = networkInteractor.safeApiCall {
-            ParrotApi.service.auth(ApiAuthRequest(email, password))
-        }
+        val responseAuth =  userRemoteDataSource.auth(email, password)
         if (responseAuth.isError)
             return RepositoryResult(
                 errorCode = responseAuth.requiredError.requiredErrorCode,
                 errorMessage = responseAuth.requiredError.requiredErrorMessage
             )
 
-        val credentials = responseAuth.requiredResult
-        val responseUser = networkInteractor.safeApiCall {
-            ParrotApi.service.getMe("Bearer ${credentials.accessToken}")
-        }
+        val accessToken = responseAuth.requiredResult.accessToken
+        val responseUser = userRemoteDataSource.getMe(accessToken)
 
         if (responseUser.isError) {
             return RepositoryResult(
@@ -48,25 +42,29 @@ class UserRepositoryImpl @Inject constructor(
         val apiUser = responseUser.requiredResult.result
         val apiStore = apiUser.stores.first()
 
-        userManager.saveCredentials(apiCredentials.accessToken, apiCredentials.refreshToken)
-        userManager.saveStore(apiStore.uuid, apiStore.name)
+        userLocalDataSource.saveCredentials(apiCredentials.accessToken, apiCredentials.refreshToken)
+        userLocalDataSource.saveStore(apiStore.uuid, apiStore.name)
 
         return RepositoryResult()
     }
 
     override suspend fun userExists(): RepositoryResult<Boolean> {
-        return RepositoryResult(userManager.isAuth())
+        return RepositoryResult(userLocalDataSource.isAuth())
     }
 
     override suspend fun getCredentials(): RepositoryResult<Credentials> {
-        return RepositoryResult(Credentials(
-            userManager.getAccess(), userManager.getRefresh()
-        ))
+        return RepositoryResult(
+            Credentials(
+                userLocalDataSource.getAccess(), userLocalDataSource.getRefresh()
+            )
+        )
     }
 
     override suspend fun getStore(): RepositoryResult<Store> {
-        return RepositoryResult(Store(
-            userManager.getStoreUuid(), userManager.getStoreName()
-        ))
+        return RepositoryResult(
+            Store(
+                userLocalDataSource.getStoreUuid(), userLocalDataSource.getStoreName()
+            )
+        )
     }
 }
