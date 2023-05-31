@@ -14,4 +14,5 @@ interface UserRepository {
 
     suspend fun getStore(): RepositoryResult<Store>
 
+    fun logout()
 }

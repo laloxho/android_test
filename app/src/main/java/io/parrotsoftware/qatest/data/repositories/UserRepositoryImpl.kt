@@ -67,4 +67,8 @@ class UserRepositoryImpl @Inject constructor(
             )
         )
     }
+
+    override fun logout() {
+        userLocalDataSource.clear()
+    }
 }
