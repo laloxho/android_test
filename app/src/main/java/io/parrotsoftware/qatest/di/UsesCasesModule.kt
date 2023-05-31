@@ -9,6 +9,7 @@ import io.parrotsoftware.qatest.domain.repositories.UserRepository
 import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
+import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
 import io.parrotsoftware.qatest.domain.usescases.LoginUseCase
 import io.parrotsoftware.qatest.domain.usescases.SetProductsStateUseCase
 import io.parrotsoftware.qatest.domain.usescases.UserExistsUseCase
@@ -19,6 +20,9 @@ class UsesCasesModule {
 
     @Provides
     fun providesLoginUseCase(userRepository: UserRepository) = LoginUseCase(userRepository)
+
+    @Provides
+    fun providesLogoutUseCase(userRepository: UserRepository) = LogoutUseCase(userRepository)
 
     @Provides
     fun providesUserExistsUseCase(userRepository: UserRepository) =

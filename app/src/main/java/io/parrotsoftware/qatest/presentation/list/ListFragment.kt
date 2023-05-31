@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.parrotsoftware.qatest.R
 import io.parrotsoftware.qatest.utils.observe
@@ -62,7 +63,11 @@ class ListFragment :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_logout -> {
-                TODO("Implement")
+                viewModel.logout().also {
+                    findNavController().navigate(
+                        ListFragmentDirections.actionListFragmentToLoginFragment()
+                    )
+                }
             }
         }
         return super.onOptionsItemSelected(item)

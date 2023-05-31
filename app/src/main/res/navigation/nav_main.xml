@@ -19,5 +19,11 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="io.parrotsoftware.qatest.presentation.list.ListFragment"
-        tools:layout="@layout/fragment_list"/>
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/listFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

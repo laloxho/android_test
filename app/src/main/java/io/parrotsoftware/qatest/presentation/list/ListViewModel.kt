@@ -11,6 +11,7 @@ import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
+import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
 import io.parrotsoftware.qatest.domain.usescases.SetProductsStateUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +21,8 @@ class ListViewModel @Inject constructor(
     private val getCredentialsUseCase: GetCredentialsUseCase,
     private val getStoreUseCase: GetStoreUseCase,
     private val getProductsUseCase: GetProductsUseCase,
-    private val setProductsStateUseCase: SetProductsStateUseCase
+    private val setProductsStateUseCase: SetProductsStateUseCase,
+    private val logoutUseCase: LogoutUseCase
 ) : ViewModel(), LifecycleObserver {
 
     private val _viewState = MutableLiveData<ListViewState>()
@@ -32,7 +34,6 @@ class ListViewModel @Inject constructor(
 
     private var products = mutableListOf<Product>()
     private val categoriesExpanded = mutableMapOf<String, Boolean>()
-
 
     fun initView() {
         fetchProducts()
@@ -125,5 +126,9 @@ class ListViewModel @Inject constructor(
                 productGroup
             )
         }
+    }
+
+    fun logout() {
+        logoutUseCase()
     }
 }
