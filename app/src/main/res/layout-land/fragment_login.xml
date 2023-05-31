@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.parrotsoftware.qatest.ui.login.LoginViewModel" />
+            type="io.parrotsoftware.qatest.presentation.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

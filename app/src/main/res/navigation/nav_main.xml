@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="io.parrotsoftware.qatest.ui.login.LoginFragment"
+        android:name="io.parrotsoftware.qatest.presentation.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -18,6 +18,6 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="io.parrotsoftware.qatest.ui.list.ListFragment"
+        android:name="io.parrotsoftware.qatest.presentation.list.ListFragment"
         tools:layout="@layout/fragment_list"/>
 </navigation>
