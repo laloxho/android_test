@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -30,6 +31,7 @@ class ListFragment :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showSupportActionBar()
         setHasOptionsMenu(true)
     }
 
@@ -71,6 +73,10 @@ class ListFragment :
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSupportActionBar() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 
     private fun onViewState(state: ListViewState?) {
