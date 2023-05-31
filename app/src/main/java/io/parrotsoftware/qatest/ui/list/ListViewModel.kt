@@ -6,15 +6,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.parrotsoftware.qatest.data.domain.Product
-import io.parrotsoftware.qatest.data.repositories.ProductRepository
-import io.parrotsoftware.qatest.data.repositories.UserRepository
+import io.parrotsoftware.qatest.domain.repositories.ProductRepository
+import io.parrotsoftware.qatest.domain.repositories.UserRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListViewModel : ViewModel(), LifecycleObserver {
-
-    lateinit var userRepository: UserRepository
-    lateinit var productRepository: ProductRepository
+@HiltViewModel
+class ListViewModel @Inject constructor(
+    private val userRepository: UserRepository,
+    private val productRepository: ProductRepository
+) : ViewModel(), LifecycleObserver {
 
     private val _viewState = MutableLiveData<ListViewState>()
     fun getViewState() = _viewState

@@ -3,10 +3,13 @@ object Dependencies {
     val appCompat by lazy { "androidx.appcompat:appcompat:${Versions.appCompat}" }
     val constraint by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraint}" }
     val coroutinesCore by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}" }
+    val daggerHilt by lazy { "com.google.dagger:hilt-android:${Versions.daggerHilt}" }
+    val daggerHiltCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}" }
     val epoxy by lazy { "com.airbnb.android:epoxy:${Versions.epoxy}" }
     val epoxyDatabinding by lazy { "com.airbnb.android:epoxy-databinding:${Versions.epoxy}" }
     val epoxyProcessor by lazy { "com.airbnb.android:epoxy-processor:${Versions.epoxy}" }
     val espressoCore by lazy { "androidx.test.espresso:espresso-core:${Versions.espresso}" }
+    val javaxInject by lazy { "javax.inject:javax.inject:${Versions.javaxInject}" }
     val junit by lazy { "junit:junit:${Versions.junit}" }
     val junitTest by lazy { "androidx.test.ext:junit:${Versions.junitTest}" }
     val lifecycleLivedata by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }

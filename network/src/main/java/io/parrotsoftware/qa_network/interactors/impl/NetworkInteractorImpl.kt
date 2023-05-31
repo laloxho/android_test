@@ -13,8 +13,9 @@ import java.io.IOException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import javax.inject.Inject
 
-class NetworkInteractorImpl: NetworkInteractor {
+class NetworkInteractorImpl @Inject constructor(): NetworkInteractor {
 
     override suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher,

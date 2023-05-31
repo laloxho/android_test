@@ -41,6 +41,7 @@ dependencies {
     implementation(Dependencies.retrofitConverter)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.okhttpInterceptor)
+    implementation(Dependencies.javaxInject)
 
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitTest)

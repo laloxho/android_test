@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
     id("androidx.navigation.safeargs")
@@ -60,7 +61,9 @@ dependencies {
     implementation(Dependencies.navigationUi)
     implementation(Dependencies.swipeRefreshLayout)
     implementation(Dependencies.timber)
+    implementation(Dependencies.daggerHilt)
 
+    kapt(Dependencies.daggerHiltCompiler)
     kapt (Dependencies.epoxyProcessor)
 
     testImplementation(Dependencies.junit)
