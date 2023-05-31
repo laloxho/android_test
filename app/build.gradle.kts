@@ -62,6 +62,7 @@ dependencies {
     implementation(Dependencies.swipeRefreshLayout)
     implementation(Dependencies.timber)
     implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.splashScreen)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt (Dependencies.epoxyProcessor)

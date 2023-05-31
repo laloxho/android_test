@@ -15,6 +15,7 @@ object Versions {
     const val navigation = "2.5.3"
     const val okhttp = "4.11.0"
     const val retrofit = "2.9.0"
+    const val splashScreen = "1.0.1"
     const val swipeRefreshLayout = "1.1.0"
     const val timber = "5.0.1"
 }

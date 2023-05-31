@@ -22,6 +22,7 @@ object Dependencies {
     val okhttpInterceptor by lazy { "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}" }
     val retrofit by lazy { "com.squareup.retrofit2:retrofit:${Versions.retrofit}" }
     val retrofitConverter by lazy { "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}" }
+    val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
     val swipeRefreshLayout by lazy { "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}" }
     val timber by lazy { "com.jakewharton.timber:timber:${Versions.timber}" }
 }
