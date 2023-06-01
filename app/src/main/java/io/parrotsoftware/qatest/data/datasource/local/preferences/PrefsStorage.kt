@@ -2,7 +2,7 @@ package io.parrotsoftware.qatest.data.datasource.local.preferences
 
 import android.content.Context
 
-abstract class PrefsStorage(context: Context, prefsName: String) {
+class PrefsStorage(context: Context, prefsName: String) {
 
     private val sharedPreferences = context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
 

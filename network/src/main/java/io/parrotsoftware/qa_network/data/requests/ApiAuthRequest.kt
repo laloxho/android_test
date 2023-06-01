@@ -1,4 +1,4 @@
-package io.parrotsoftware.qa_network.domain.requests
+package io.parrotsoftware.qa_network.data.requests
 
 data class ApiAuthRequest(
     val email: String,
