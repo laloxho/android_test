@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.data
 
-import io.parrotsoftware.qa_network.domain.responses.ApiCategory
-import io.parrotsoftware.qa_network.domain.responses.ApiProduct
-import io.parrotsoftware.qa_network.domain.responses.ApiProductAvailability
+import io.parrotsoftware.qa_network.data.responses.ApiCategory
+import io.parrotsoftware.qa_network.data.responses.ApiProduct
+import io.parrotsoftware.qa_network.data.responses.ApiProductAvailability
 import io.parrotsoftware.qatest.data.datasource.local.database.entities.ProductEntity
 import io.parrotsoftware.qatest.domain.models.Category
 import io.parrotsoftware.qatest.domain.models.Product

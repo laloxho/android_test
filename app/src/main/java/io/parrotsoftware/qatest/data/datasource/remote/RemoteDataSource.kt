@@ -1,12 +1,12 @@
 package io.parrotsoftware.qatest.data.datasource.remote
 
-import io.parrotsoftware.qa_network.domain.NetworkResult
-import io.parrotsoftware.qa_network.domain.requests.ApiUpdateProductRequest
-import io.parrotsoftware.qa_network.domain.responses.ApiCredentials
-import io.parrotsoftware.qa_network.domain.responses.ApiListResponse
-import io.parrotsoftware.qa_network.domain.responses.ApiProduct
-import io.parrotsoftware.qa_network.domain.responses.ApiSingleResponse
-import io.parrotsoftware.qa_network.domain.responses.ApiUserWithStores
+import io.parrotsoftware.qa_network.data.NetworkResult
+import io.parrotsoftware.qa_network.data.requests.ApiUpdateProductRequest
+import io.parrotsoftware.qa_network.data.responses.ApiCredentials
+import io.parrotsoftware.qa_network.data.responses.ApiListResponse
+import io.parrotsoftware.qa_network.data.responses.ApiProduct
+import io.parrotsoftware.qa_network.data.responses.ApiSingleResponse
+import io.parrotsoftware.qa_network.data.responses.ApiUserWithStores
 
 interface RemoteDataSource {
 

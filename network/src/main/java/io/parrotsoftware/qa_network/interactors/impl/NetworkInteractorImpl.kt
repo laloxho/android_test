@@ -4,10 +4,10 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import io.parrotsoftware.qa_network.domain.APIError
-import io.parrotsoftware.qa_network.domain.NetworkError
-import io.parrotsoftware.qa_network.domain.NetworkErrorType
-import io.parrotsoftware.qa_network.domain.NetworkResult
+import io.parrotsoftware.qa_network.data.APIError
+import io.parrotsoftware.qa_network.data.NetworkError
+import io.parrotsoftware.qa_network.data.NetworkErrorType
+import io.parrotsoftware.qa_network.data.NetworkResult
 import io.parrotsoftware.qa_network.interactors.NetworkInteractor
 import java.io.IOException
 import kotlinx.coroutines.CoroutineDispatcher

@@ -1,7 +1,7 @@
 package io.parrotsoftware.qatest.data.repositories
 
-import io.parrotsoftware.qa_network.domain.requests.ApiUpdateProductRequest
-import io.parrotsoftware.qa_network.domain.responses.ApiProductAvailability
+import io.parrotsoftware.qa_network.data.requests.ApiUpdateProductRequest
+import io.parrotsoftware.qa_network.data.responses.ApiProductAvailability
 import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
 import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
