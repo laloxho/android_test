@@ -18,7 +18,7 @@ interface RemoteDataSource {
         body: ApiUpdateProductRequest
     ): NetworkResult<ApiSingleResponse<ApiProduct>>
 
-    suspend fun auth(accessToken: String, storeId: String): NetworkResult<ApiCredentials>
+    suspend fun auth(email: String, password: String): NetworkResult<ApiCredentials>
 
     suspend fun getMe(accessToken: String): NetworkResult<ApiSingleResponse<ApiUserWithStores>>
 }

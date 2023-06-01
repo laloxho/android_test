@@ -1,20 +1,23 @@
 package io.parrotsoftware.qatest.di
 
 import android.content.Context
-import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import io.parrotsoftware.qatest.data.datasource.local.database.AppDatabase
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class StorageModule {
+class DatabaseModule {
 
-    @Provides
     @Singleton
-    fun providesSharedPreferences(@ApplicationContext context: Context): SharedPreferences =
-        context.getSharedPreferences("ParrotPrefs", Context.MODE_PRIVATE)
+    @Provides
+    fun provideAppDatabase(@ApplicationContext context: Context) = AppDatabase.build(context)
+
+    @Singleton
+    @Provides
+    fun provideProductsDao(appDatabase: AppDatabase) = appDatabase.productsDao()
 }

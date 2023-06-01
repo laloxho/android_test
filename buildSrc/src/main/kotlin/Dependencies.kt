@@ -1,8 +1,10 @@
 object Dependencies {
     val androidCore by lazy { "androidx.core:core-ktx:${Versions.androidCore}" }
     val appCompat by lazy { "androidx.appcompat:appcompat:${Versions.appCompat}" }
+    val archCore by lazy { "androidx.arch.core:core-testing:${Versions.archCore}" }
     val constraint by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraint}" }
-    val coroutinesCore by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}" }
+    val coroutinesCore by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}" }
+    val coroutinesTest by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}" }
     val daggerHilt by lazy { "com.google.dagger:hilt-android:${Versions.daggerHilt}" }
     val daggerHiltCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}" }
     val epoxy by lazy { "com.airbnb.android:epoxy:${Versions.epoxy}" }
@@ -15,6 +17,9 @@ object Dependencies {
     val lifecycleLivedata by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }
     val lifecycleViewmodel by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }
     val material by lazy { "com.google.android.material:material:${Versions.material}" }
+    val mockitoAndroid by lazy { "org.mockito:mockito-android:${Versions.mockito}" }
+    val mockitoCore by lazy { "org.mockito:mockito-core:${Versions.mockito}" }
+    val mockitoInline by lazy { "org.mockito:mockito-inline:${Versions.mockitoInline}" }
     val moshiAdapters by lazy { "com.squareup.moshi:moshi-adapters:${Versions.moshi}" }
     val moshiKotlin by lazy { "com.squareup.moshi:moshi-kotlin:${Versions.moshi}" }
     val navigation by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }

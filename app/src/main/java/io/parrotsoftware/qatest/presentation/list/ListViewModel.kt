@@ -32,7 +32,7 @@ class ListViewModel @Inject constructor(
         it is ListViewState.Loading
     }
 
-    private var products = mutableListOf<Product>()
+    var products = mutableListOf<Product>()
     private val categoriesExpanded = mutableMapOf<String, Boolean>()
 
     fun initView() {
