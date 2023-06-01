@@ -2,8 +2,8 @@ package io.parrotsoftware.qatest.data.repositories
 
 import io.parrotsoftware.qa_network.domain.requests.ApiUpdateProductRequest
 import io.parrotsoftware.qa_network.domain.responses.ApiProductAvailability
-import io.parrotsoftware.qatest.data.datasource.local.ProductLocalDataSource
-import io.parrotsoftware.qatest.data.datasource.remote.ProductRemoteDataSource
+import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
+import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
 import io.parrotsoftware.qatest.data.toProduct
 import io.parrotsoftware.qatest.data.toProductEntity
@@ -12,18 +12,18 @@ import io.parrotsoftware.qatest.domain.repositories.ProductRepository
 import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
-    private val productRemoteDataSource: ProductRemoteDataSource,
-    private val productLocalDataSource: ProductLocalDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource
 ) : ProductRepository {
 
     override suspend fun getProducts(
         accessToken: String,
         storeId: String
     ): RepositoryResult<List<Product>> {
-        val response = productRemoteDataSource.getProducts(accessToken, storeId)
+        val response = remoteDataSource.getProducts(accessToken, storeId)
 
         if (response.isError) {
-            val products = productLocalDataSource.getProducts().map { it.toProduct() }
+            val products = localDataSource.getProducts().map { it.toProduct() }
             if (products.isEmpty()) {
                 return RepositoryResult(
                     errorCode = response.requiredError.requiredErrorCode,
@@ -34,7 +34,7 @@ class ProductRepositoryImpl @Inject constructor(
         }
 
         val products = response.requiredResult.results.map { it.toProduct() }
-        productLocalDataSource.insertAll(products.map { it.toProductEntity() })
+        localDataSource.insertAll(products.map { it.toProductEntity() })
         return RepositoryResult(products)
     }
 
@@ -48,7 +48,7 @@ class ProductRepositoryImpl @Inject constructor(
             else ApiProductAvailability.UNAVAILABLE
         )
 
-        val response = productRemoteDataSource.updateProduct(
+        val response = remoteDataSource.updateProduct(
             accessToken,
             productId,
             body

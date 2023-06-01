@@ -1,6 +1,14 @@
 package io.parrotsoftware.qatest.data.datasource.local
 
-interface UserLocalDataSource {
+import io.parrotsoftware.qatest.data.datasource.local.database.entities.ProductEntity
+
+interface LocalDataSource {
+
+    suspend fun insertAll(products: List<ProductEntity>)
+
+    suspend fun getProducts(): List<ProductEntity>
+
+    suspend fun clearData()
 
     fun saveCredentials(access: String, refresh: String)
 
@@ -15,6 +23,4 @@ interface UserLocalDataSource {
     fun getStoreName(): String
 
     fun isAuth(): Boolean
-
-    fun clearData()
 }

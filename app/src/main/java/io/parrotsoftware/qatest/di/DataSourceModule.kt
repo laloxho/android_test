@@ -4,14 +4,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.parrotsoftware.qatest.data.datasource.local.ProductLocalDataSource
-import io.parrotsoftware.qatest.data.datasource.local.UserLocalDataSource
-import io.parrotsoftware.qatest.data.datasource.local.impl.ProductLocalDataSourceImpl
-import io.parrotsoftware.qatest.data.datasource.local.impl.UserLocalDataSourceImpl
-import io.parrotsoftware.qatest.data.datasource.remote.ProductRemoteDataSource
-import io.parrotsoftware.qatest.data.datasource.remote.UserRemoteDataSource
-import io.parrotsoftware.qatest.data.datasource.remote.impl.ProductRemoteDataSourceImpl
-import io.parrotsoftware.qatest.data.datasource.remote.impl.UserRemoteDataSourceImpl
+import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
+import io.parrotsoftware.qatest.data.datasource.local.impl.LocalDataSourceImpl
+import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
+import io.parrotsoftware.qatest.data.datasource.remote.impl.RemoteDataSourceImpl
 import javax.inject.Singleton
 
 @Module
@@ -20,17 +16,9 @@ abstract class DataSourceModule {
 
     @Singleton
     @Binds
-    abstract fun provideProductRemoteDataSource(remoteDataSource: ProductRemoteDataSourceImpl): ProductRemoteDataSource
+    abstract fun provideRemoteDataSource(remoteDataSource: RemoteDataSourceImpl): RemoteDataSource
 
     @Singleton
     @Binds
-    abstract fun provideUserRemoteDataSource(remoteDataSource: UserRemoteDataSourceImpl): UserRemoteDataSource
-
-    @Singleton
-    @Binds
-    abstract fun provideUserLocalDataSource(localDataSource: UserLocalDataSourceImpl): UserLocalDataSource
-
-    @Singleton
-    @Binds
-    abstract fun provideProductLocalDataSource(localDataSource: ProductLocalDataSourceImpl): ProductLocalDataSource
+    abstract fun provideLocalDataSource(localDataSource: LocalDataSourceImpl): LocalDataSource
 }

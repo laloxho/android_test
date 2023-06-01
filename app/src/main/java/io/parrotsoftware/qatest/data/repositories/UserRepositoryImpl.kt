@@ -1,7 +1,7 @@
 package io.parrotsoftware.qatest.data.repositories
 
-import io.parrotsoftware.qatest.data.datasource.local.impl.UserLocalDataSourceImpl
-import io.parrotsoftware.qatest.data.datasource.remote.UserRemoteDataSource
+import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
+import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
 import io.parrotsoftware.qatest.domain.models.Credentials
 import io.parrotsoftware.qatest.domain.models.Store
@@ -9,12 +9,12 @@ import io.parrotsoftware.qatest.domain.repositories.UserRepository
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val userLocalDataSource: UserLocalDataSourceImpl,
-    private val userRemoteDataSource: UserRemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource
 ) : UserRepository {
 
     override suspend fun login(email: String, password: String): RepositoryResult<Nothing> {
-        val responseAuth =  userRemoteDataSource.auth(email, password)
+        val responseAuth =  remoteDataSource.auth(email, password)
         if (responseAuth.isError)
             return RepositoryResult(
                 errorCode = responseAuth.requiredError.requiredErrorCode,
@@ -22,7 +22,7 @@ class UserRepositoryImpl @Inject constructor(
             )
 
         val accessToken = responseAuth.requiredResult.accessToken
-        val responseUser = userRemoteDataSource.getMe(accessToken)
+        val responseUser = remoteDataSource.getMe(accessToken)
 
         if (responseUser.isError) {
             return RepositoryResult(
@@ -42,20 +42,20 @@ class UserRepositoryImpl @Inject constructor(
         val apiUser = responseUser.requiredResult.result
         val apiStore = apiUser.stores.first()
 
-        userLocalDataSource.saveCredentials(apiCredentials.accessToken, apiCredentials.refreshToken)
-        userLocalDataSource.saveStore(apiStore.uuid, apiStore.name)
+        localDataSource.saveCredentials(apiCredentials.accessToken, apiCredentials.refreshToken)
+        localDataSource.saveStore(apiStore.uuid, apiStore.name)
 
         return RepositoryResult()
     }
 
     override suspend fun userExists(): RepositoryResult<Boolean> {
-        return RepositoryResult(userLocalDataSource.isAuth())
+        return RepositoryResult(localDataSource.isAuth())
     }
 
     override suspend fun getCredentials(): RepositoryResult<Credentials> {
         return RepositoryResult(
             Credentials(
-                userLocalDataSource.getAccess(), userLocalDataSource.getRefresh()
+                localDataSource.getAccess(), localDataSource.getRefresh()
             )
         )
     }
@@ -63,12 +63,12 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getStore(): RepositoryResult<Store> {
         return RepositoryResult(
             Store(
-                userLocalDataSource.getStoreUuid(), userLocalDataSource.getStoreName()
+                localDataSource.getStoreUuid(), localDataSource.getStoreName()
             )
         )
     }
 
-    override fun logout() {
-        userLocalDataSource.clearData()
+    override suspend fun logout() {
+        localDataSource.clearData()
     }
 }
