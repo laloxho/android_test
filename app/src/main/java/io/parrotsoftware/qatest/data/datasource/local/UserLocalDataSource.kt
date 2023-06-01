@@ -15,4 +15,6 @@ interface UserLocalDataSource {
     fun getStoreName(): String
 
     fun isAuth(): Boolean
+
+    fun clearData()
 }

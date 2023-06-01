@@ -63,7 +63,10 @@ dependencies {
     implementation(Dependencies.timber)
     implementation(Dependencies.daggerHilt)
     implementation(Dependencies.splashScreen)
+    implementation(Dependencies.roomRuntime)
+    implementation(Dependencies.room)
 
+    kapt(Dependencies.roomCompiler)
     kapt(Dependencies.daggerHiltCompiler)
     kapt (Dependencies.epoxyProcessor)
 
