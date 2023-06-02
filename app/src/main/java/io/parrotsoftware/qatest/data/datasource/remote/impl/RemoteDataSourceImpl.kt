@@ -29,9 +29,9 @@ class RemoteDataSourceImpl @Inject constructor(
             )
         }
 
-    override suspend fun auth(accessToken: String, storeId: String) =
+    override suspend fun auth(email: String, password: String) =
         networkInteractor.safeApiCall {
-            ParrotApi.service.auth(ApiAuthRequest(accessToken, storeId))
+            ParrotApi.service.auth(ApiAuthRequest(email, password))
         }
 
     override suspend fun getMe(accessToken: String) =

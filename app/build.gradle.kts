@@ -71,6 +71,13 @@ dependencies {
     kapt (Dependencies.epoxyProcessor)
 
     testImplementation(Dependencies.junit)
+    testImplementation(Dependencies.mockitoInline)
+    testImplementation(Dependencies.coroutinesTest)
+    testImplementation(Dependencies.mockitoCore)
+    testImplementation(Dependencies.archCore)
+
+    androidTestImplementation(Dependencies.archCore)
     androidTestImplementation(Dependencies.junitTest)
     androidTestImplementation(Dependencies.espressoCore)
+    androidTestImplementation(Dependencies.mockitoAndroid)
 }
