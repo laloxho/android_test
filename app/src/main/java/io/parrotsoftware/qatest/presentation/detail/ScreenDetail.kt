@@ -1,15 +1,20 @@
 package io.parrotsoftware.qatest.presentation.detail
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
@@ -28,6 +33,7 @@ import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.models.ResponseState
 import io.parrotsoftware.qatest.presentation.composables.LoadImage
 import io.parrotsoftware.qatest.presentation.composables.LoadingCircular
+import io.parrotsoftware.qatest.presentation.theme.Green
 import io.parrotsoftware.qatest.presentation.theme.Orange
 import io.parrotsoftware.qatest.presentation.theme.TextStyle_Info
 import io.parrotsoftware.qatest.presentation.theme.TextStyle_MainTitle
@@ -49,20 +55,37 @@ fun ScreenDetail(showDetailViewModel: ShowDetailViewModel = hiltViewModel(), pro
 
 @Composable
 fun ShowData(product: Product) {
-    Column {
-        LoadImage(product.image, Modifier.fillMaxWidth().height(270.dp))
-        Card(
+    BoxWithConstraints {
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(),
-            elevation = 4.dp,
-            backgroundColor = Orange,
-            shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                ProductName(product.name, product.price.toString())
-                ProductDescription(product.description)
-                ProductAvailability(product.isAvailable)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(this@BoxWithConstraints.maxHeight)
+            ) {
+                LoadImage(
+                    product.image,
+                    Modifier
+                        .fillMaxWidth()
+                        .height(270.dp)
+                )
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
+                    elevation = 8.dp,
+                    backgroundColor = Orange,
+                    shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
+                ) {
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        ProductName(product.name, product.price.toString())
+                        ProductDescription(product.description)
+                        ProductAvailability(product.isAvailable)
+                    }
+                }
             }
         }
     }
@@ -104,7 +127,7 @@ fun ProductDescription(description: String) {
     )
     Text(
         modifier = Modifier
-            .padding(top = 10.dp),
+            .padding(top = 15.dp),
         text = description,
         style = TextStyle_Info,
         color = Color.White,
@@ -117,15 +140,15 @@ fun ProductAvailability(available: Boolean) {
     Button(
         onClick = { },
         shape = RoundedCornerShape(50.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = if (available) Color.Green else Color.LightGray),
+        colors = ButtonDefaults.buttonColors(backgroundColor = if (available) Green else Color.LightGray),
         modifier = Modifier
-            .padding(20.dp)
+            .padding(25.dp)
             .fillMaxWidth()
             .wrapContentWidth(Alignment.CenterHorizontally)
     ) {
         Text(
             text = stringResource(id = if (available) R.string.detail_available else R.string.detail_unavailable),
-            color = Color.Black,
+            color = if (available) Color.White else Color.Black,
             modifier = Modifier.padding(8.dp)
         )
     }

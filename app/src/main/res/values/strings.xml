@@ -14,7 +14,7 @@
 
     <!-- Detail -->
     <string name="detail_description">Descripción:</string>
-    <string name="detail_available">Disponible</string>
-    <string name="detail_unavailable">No disponible</string>
+    <string name="detail_available">Producto disponible</string>
+    <string name="detail_unavailable">Producto no disponible</string>
 
 </resources>
