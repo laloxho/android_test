@@ -101,4 +101,10 @@ class ListFragment :
     override fun onProductSelected(product: EnabledProduct) {
         viewModel.productSelected(product)
     }
+
+    override fun onProductSelected(product: String) {
+        findNavController().navigate(
+            ListFragmentDirections.actionListFragmentToShowDetailFragment()
+        )
+    }
 }

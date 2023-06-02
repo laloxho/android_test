@@ -2,6 +2,7 @@ object Versions {
     const val androidCore = "1.10.1"
     const val appCompat = "1.6.1"
     const val archCore = "2.2.0"
+    const val coilCompose = "2.3.0"
     const val constraint = "2.1.4"
     const val coroutines = "1.7.1"
     const val daggerHilt = "2.46.1"
@@ -13,6 +14,7 @@ object Versions {
     const val junitTest = "1.1.5"
     const val lifecycle = "2.6.1"
     const val material = "1.9.0"
+    const val materialCompose = "1.4.3"
     const val mockito = "5.3.1"
     const val mockitoInline = "5.2.0"
     const val moshi = "1.13.0"
@@ -23,4 +25,5 @@ object Versions {
     const val splashScreen = "1.0.1"
     const val swipeRefreshLayout = "1.1.0"
     const val timber = "5.0.1"
+    const val toolingCompose = "1.4.3"
 }

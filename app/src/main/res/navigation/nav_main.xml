@@ -25,5 +25,14 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@+id/listFragment"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_listFragment_to_showDetailFragment"
+            app:destination="@+id/showDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/showDetailFragment"
+        android:name="io.parrotsoftware.qatest.presentation.detail.ShowDetailFragment"
+        tools:layout="@layout/fragment_show_detail"/>
 </navigation>

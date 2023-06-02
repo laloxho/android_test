@@ -2,6 +2,7 @@ object Dependencies {
     val androidCore by lazy { "androidx.core:core-ktx:${Versions.androidCore}" }
     val appCompat by lazy { "androidx.appcompat:appcompat:${Versions.appCompat}" }
     val archCore by lazy { "androidx.arch.core:core-testing:${Versions.archCore}" }
+    val coilCompose by lazy { "io.coil-kt:coil-compose:${Versions.coilCompose}" }
     val constraint by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraint}" }
     val coroutinesCore by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}" }
     val coroutinesTest by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}" }
@@ -18,6 +19,7 @@ object Dependencies {
     val lifecycleLivedata by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }
     val lifecycleViewmodel by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }
     val material by lazy { "com.google.android.material:material:${Versions.material}" }
+    val materialCompose by lazy { "androidx.compose.material:material:${Versions.materialCompose}" }
     val mockitoAndroid by lazy { "org.mockito:mockito-android:${Versions.mockito}" }
     val mockitoCore by lazy { "org.mockito:mockito-core:${Versions.mockito}" }
     val mockitoInline by lazy { "org.mockito:mockito-inline:${Versions.mockitoInline}" }
@@ -34,4 +36,5 @@ object Dependencies {
     val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
     val swipeRefreshLayout by lazy { "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}" }
     val timber by lazy { "com.jakewharton.timber:timber:${Versions.timber}" }
+    val toolingCompose by lazy { "androidx.compose.ui:ui-tooling:${Versions.toolingCompose}" }
 }

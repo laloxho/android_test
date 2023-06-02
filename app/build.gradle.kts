@@ -35,7 +35,13 @@ android {
     }
 
     buildFeatures {
+        viewBinding = true
         dataBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
 
     kapt {
@@ -66,6 +72,9 @@ dependencies {
     implementation(Dependencies.glide)
     implementation(Dependencies.roomRuntime)
     implementation(Dependencies.room)
+    implementation(Dependencies.materialCompose)
+    implementation(Dependencies.coilCompose)
+    debugImplementation(Dependencies.toolingCompose)
 
     kapt(Dependencies.roomCompiler)
     kapt(Dependencies.daggerHiltCompiler)
