@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import io.parrotsoftware.qatest.domain.repositories.ProductRepository
 import io.parrotsoftware.qatest.domain.repositories.UserRepository
 import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
+import io.parrotsoftware.qatest.domain.usescases.GetProductsByIdUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
 import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
@@ -42,4 +43,8 @@ class UsesCasesModule {
     @Provides
     fun providesSetProductsStateUseCase(productRepository: ProductRepository) =
         SetProductsStateUseCase(productRepository)
+
+    @Provides
+    fun providesGetProductsByIdUseCase(productRepository: ProductRepository) =
+        GetProductsByIdUseCase(productRepository)
 }

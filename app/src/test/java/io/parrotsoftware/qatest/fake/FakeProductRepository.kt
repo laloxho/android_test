@@ -4,6 +4,8 @@ import io.parrotsoftware.qatest.fake.FakeData.givenListProduct
 import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
 import io.parrotsoftware.qatest.domain.repositories.ProductRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class FakeProductRepository : ProductRepository {
 
@@ -20,5 +22,11 @@ class FakeProductRepository : ProductRepository {
         isAvailable: Boolean
     ): RepositoryResult<Nothing> {
         return RepositoryResult()
+    }
+
+    override suspend fun getProductById(id: String): Flow<Product> {
+        return flow {
+            emit(givenListProduct().first())
+        }
     }
 }

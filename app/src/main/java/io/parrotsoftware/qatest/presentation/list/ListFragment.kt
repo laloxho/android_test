@@ -104,7 +104,7 @@ class ListFragment :
 
     override fun onProductSelected(product: String) {
         findNavController().navigate(
-            ListFragmentDirections.actionListFragmentToShowDetailFragment()
+            ListFragmentDirections.actionListFragmentToShowDetailFragment(product)
         )
     }
 }

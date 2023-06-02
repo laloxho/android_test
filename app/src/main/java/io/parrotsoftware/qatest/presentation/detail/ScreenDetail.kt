@@ -1,10 +1,12 @@
-package io.parrotsoftware.qatest.presentation
+package io.parrotsoftware.qatest.presentation.detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,10 +15,19 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import io.parrotsoftware.qatest.R
+import io.parrotsoftware.qatest.domain.models.Product
+import io.parrotsoftware.qatest.domain.models.ResponseState
+import io.parrotsoftware.qatest.presentation.composables.LoadImage
+import io.parrotsoftware.qatest.presentation.composables.LoadingCircular
 import io.parrotsoftware.qatest.presentation.theme.Orange
 import io.parrotsoftware.qatest.presentation.theme.TextStyle_Info
 import io.parrotsoftware.qatest.presentation.theme.TextStyle_MainTitle
@@ -24,12 +35,22 @@ import io.parrotsoftware.qatest.presentation.theme.TextStyle_SecondTitle
 import io.parrotsoftware.qatest.presentation.theme.bold
 
 @Composable
-fun ScreenDetail() {
+fun ScreenDetail(showDetailViewModel: ShowDetailViewModel = hiltViewModel(), productId: String) {
+
+    LaunchedEffect(key1 = Unit) {
+        showDetailViewModel.getProductById(productId)
+    }
+
+    when (val product = showDetailViewModel.product.value) {
+        is ResponseState.Loading -> LoadingCircular()
+        is ResponseState.Success -> ShowData(product.responseTo())
+    }
+}
+
+@Composable
+fun ShowData(product: Product) {
     Column {
-        LoadImage(
-            "https://d1ralsognjng37.cloudfront.net/b49451f6-4f81-404e-bb97-2e486100b2b8.jpeg",
-            Modifier
-        )
+        LoadImage(product.image, Modifier.fillMaxWidth().height(270.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -39,66 +60,71 @@ fun ScreenDetail() {
             shape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
-                ProductName()
-                ProductDescription()
-                ProductAvailability()
+                ProductName(product.name, product.price.toString())
+                ProductDescription(product.description)
+                ProductAvailability(product.isAvailable)
             }
         }
     }
 }
 
 @Composable
-fun ProductName() {
+fun ProductName(name: String, price: String) {
     Row(
         modifier = Modifier
             .padding(top = 8.dp)
             .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "Combo Amigos",
+            modifier = Modifier.weight(1f),
+            text = name,
             style = TextStyle_MainTitle,
             color = Color.White
         )
+        Spacer(modifier = Modifier.padding(horizontal = 10.dp))
         Text(
-            text = "$13.00",
+            text = "$${price}",
             style = TextStyle_SecondTitle.bold(),
-            color = Color.White
+            color = Color.White,
+            maxLines = 1
         )
     }
 }
 
 @Composable
-fun ProductDescription() {
+fun ProductDescription(description: String) {
     Text(
         modifier = Modifier
             .padding(top = 20.dp),
-        text = "Descripción:",
+        text = stringResource(id = R.string.detail_description),
         style = TextStyle_SecondTitle.bold(),
         color = Color.White
     )
     Text(
         modifier = Modifier
-            .padding(top = 5.dp),
-        text = "2 Subs de 15 cm (elige entre Jamón de Pavo, Sub de Pollo o Atún) + 2 bebidas embotelladas de 600 ml + 2 Bolsas de papas Sabritas o 2 galletas.",
+            .padding(top = 10.dp),
+        text = description,
         style = TextStyle_Info,
-        color = Color.White
+        color = Color.White,
+        lineHeight = 28.sp
     )
 }
 
 @Composable
-fun ProductAvailability() {
+fun ProductAvailability(available: Boolean) {
     Button(
         onClick = { },
         shape = RoundedCornerShape(50.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+        colors = ButtonDefaults.buttonColors(backgroundColor = if (available) Color.Green else Color.LightGray),
         modifier = Modifier
-            .padding(top = 20.dp)
+            .padding(20.dp)
             .fillMaxWidth()
             .wrapContentWidth(Alignment.CenterHorizontally)
     ) {
         Text(
-            text = "Disponible",
+            text = stringResource(id = if (available) R.string.detail_available else R.string.detail_unavailable),
             color = Color.Black,
             modifier = Modifier.padding(8.dp)
         )

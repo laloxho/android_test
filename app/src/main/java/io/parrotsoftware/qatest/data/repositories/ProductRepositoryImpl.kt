@@ -9,6 +9,10 @@ import io.parrotsoftware.qatest.data.toProduct
 import io.parrotsoftware.qatest.data.toProductEntity
 import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.repositories.ProductRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
@@ -62,4 +66,7 @@ class ProductRepositoryImpl @Inject constructor(
 
         return RepositoryResult()
     }
+    override suspend fun getProductById(id: String): Flow<Product> = flow {
+        emit(localDataSource.getProductById(id).toProduct())
+    }.flowOn(Dispatchers.IO)
 }

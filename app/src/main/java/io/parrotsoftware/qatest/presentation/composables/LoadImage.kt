@@ -1,6 +1,5 @@
-package io.parrotsoftware.qatest.presentation
+package io.parrotsoftware.qatest.presentation.composables
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
@@ -15,15 +14,15 @@ import coil.request.ImageRequest
 import io.parrotsoftware.qatest.R
 
 @Composable
-fun LoadImage(url: String?, modifier: Modifier) {
+fun LoadImage(url: String?, modifier: Modifier = Modifier) {
     SubcomposeAsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(url)
             .crossfade(true)
             .build(),
         contentDescription = null,
-        modifier = Modifier.fillMaxWidth(),
-        contentScale = ContentScale.FillWidth
+        modifier = modifier,
+        contentScale = ContentScale.Fit
     ) {
         when (painter.state) {
             is AsyncImagePainter.State.Loading -> CircularProgressIndicator()

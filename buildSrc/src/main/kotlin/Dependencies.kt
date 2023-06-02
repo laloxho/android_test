@@ -8,6 +8,7 @@ object Dependencies {
     val coroutinesTest by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}" }
     val daggerHilt by lazy { "com.google.dagger:hilt-android:${Versions.daggerHilt}" }
     val daggerHiltCompiler by lazy { "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}" }
+    val daggerHiltNavCompose by lazy { "androidx.hilt:hilt-navigation-compose:${Versions.daggerHiltNavCompose}" }
     val epoxy by lazy { "com.airbnb.android:epoxy:${Versions.epoxy}" }
     val epoxyDatabinding by lazy { "com.airbnb.android:epoxy-databinding:${Versions.epoxy}" }
     val epoxyProcessor by lazy { "com.airbnb.android:epoxy-processor:${Versions.epoxy}" }

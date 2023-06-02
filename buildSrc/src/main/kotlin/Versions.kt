@@ -6,6 +6,7 @@ object Versions {
     const val constraint = "2.1.4"
     const val coroutines = "1.7.1"
     const val daggerHilt = "2.46.1"
+    const val daggerHiltNavCompose = "1.0.0"
     const val epoxy = "4.1.0"
     const val espresso = "3.5.1"
     const val glide = "4.15.1"

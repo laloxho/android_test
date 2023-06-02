@@ -2,6 +2,7 @@ package io.parrotsoftware.qatest.domain.repositories
 
 import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
+import kotlinx.coroutines.flow.Flow
 
 interface ProductRepository {
 
@@ -12,4 +13,6 @@ interface ProductRepository {
         productId: String,
         isAvailable: Boolean
     ): RepositoryResult<Nothing>
+
+    suspend fun getProductById(id: String): Flow<Product>
 }

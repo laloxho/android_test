@@ -8,6 +8,8 @@ interface LocalDataSource {
 
     suspend fun getProducts(): List<ProductEntity>
 
+    suspend fun getProductById(id: String): ProductEntity
+
     suspend fun clearData()
 
     fun saveCredentials(access: String, refresh: String)

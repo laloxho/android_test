@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import dagger.hilt.android.AndroidEntryPoint
 import io.parrotsoftware.qatest.databinding.FragmentShowDetailBinding
-import io.parrotsoftware.qatest.presentation.ScreenDetail
 
+@AndroidEntryPoint
 class ShowDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShowDetailBinding
+
+    private val args : ShowDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +26,7 @@ class ShowDetailFragment : Fragment() {
         binding.composeContainer.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                ScreenDetail()
+                ScreenDetail(productId = args.productId)
             }
         }
         return binding.root
