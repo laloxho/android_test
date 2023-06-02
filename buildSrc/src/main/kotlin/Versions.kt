@@ -7,6 +7,7 @@ object Versions {
     const val daggerHilt = "2.46.1"
     const val epoxy = "4.1.0"
     const val espresso = "3.5.1"
+    const val glide = "4.15.1"
     const val javaxInject = "1"
     const val junit = "4.13.2"
     const val junitTest = "1.1.5"

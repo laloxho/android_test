@@ -63,6 +63,7 @@ dependencies {
     implementation(Dependencies.timber)
     implementation(Dependencies.daggerHilt)
     implementation(Dependencies.splashScreen)
+    implementation(Dependencies.glide)
     implementation(Dependencies.roomRuntime)
     implementation(Dependencies.room)
 

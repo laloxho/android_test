@@ -11,6 +11,7 @@ object Dependencies {
     val epoxyDatabinding by lazy { "com.airbnb.android:epoxy-databinding:${Versions.epoxy}" }
     val epoxyProcessor by lazy { "com.airbnb.android:epoxy-processor:${Versions.epoxy}" }
     val espressoCore by lazy { "androidx.test.espresso:espresso-core:${Versions.espresso}" }
+    val glide by lazy { "com.github.bumptech.glide:glide:${Versions.glide}" }
     val javaxInject by lazy { "javax.inject:javax.inject:${Versions.javaxInject}" }
     val junit by lazy { "junit:junit:${Versions.junit}" }
     val junitTest by lazy { "androidx.test.ext:junit:${Versions.junitTest}" }
