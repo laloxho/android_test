@@ -82,6 +82,13 @@ class LocalDataSourceTest {
     }
 
     @Test
+    fun `Call update product from products dao when invoke update product`() = runTest {
+        val productId = "2618ec65-f996-4b12-898b-b6cf1cc32384"
+        localDataSource.updateProduct(1, productId)
+        verify(productsDao).updateProduct(1, productId)
+    }
+
+    @Test
     fun `Get clear and delete all when invoke clear data method`() = runTest {
         localDataSource.clearData()
         verify(prefsStorage).clear()

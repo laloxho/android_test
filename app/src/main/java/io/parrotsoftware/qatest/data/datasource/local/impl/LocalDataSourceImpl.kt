@@ -17,6 +17,10 @@ class LocalDataSourceImpl @Inject constructor(
 
     override suspend fun getProductById(id: String) = productsDao.getProductById(id)
 
+    override suspend fun updateProduct(status: Int, id: String) {
+        productsDao.updateProduct(status, id)
+    }
+
     override suspend fun clearData() {
         prefsStorage.clear()
         productsDao.deleteAll()

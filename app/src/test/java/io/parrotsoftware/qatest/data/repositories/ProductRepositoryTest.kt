@@ -78,6 +78,7 @@ class ProductRepositoryTest {
         given(remoteDataSource.updateProduct(accessToken, productId, body)).willReturn(result)
         productRepository.setProductState(accessToken, productId, true)
         verify(remoteDataSource).updateProduct(accessToken, productId, body)
+        verify(localDataSource).updateProduct(1, productId)
     }
 
     @Test
