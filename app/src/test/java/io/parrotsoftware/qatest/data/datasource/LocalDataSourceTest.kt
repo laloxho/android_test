@@ -61,6 +61,34 @@ class LocalDataSourceTest {
     }
 
     @Test
+    fun `Call get product by id from products dao when invoke get product by id`() = runTest {
+        val productId = "2618ec65-f996-4b12-898b-b6cf1cc32384"
+        val product = givenListProductEntity().first()
+        given(productsDao.getProductById(productId)).willReturn(product)
+        localDataSource.getProductById(productId)
+        verify(productsDao).getProductById(productId)
+    }
+
+    @Test
+    fun `Get product by id from database when invoke get product by id`() = runTest {
+        val productId = "2618ec65-f996-4b12-898b-b6cf1cc32384"
+        val product = givenListProductEntity().first()
+        given(productsDao.getProductById(productId)).willReturn(product)
+        val productDB = localDataSource.getProductById(productId)
+        assertThat(productDB.id, equalTo("2618ec65-f996-4b12-898b-b6cf1cc32384"))
+        assertThat(productDB.name, equalTo("Combo Amigos"))
+        assertThat(productDB.price, equalTo(189.00f))
+        assertThat(productDB.isAvailable, equalTo(false))
+    }
+
+    @Test
+    fun `Call update product from products dao when invoke update product`() = runTest {
+        val productId = "2618ec65-f996-4b12-898b-b6cf1cc32384"
+        localDataSource.updateProduct(1, productId)
+        verify(productsDao).updateProduct(1, productId)
+    }
+
+    @Test
     fun `Get clear and delete all when invoke clear data method`() = runTest {
         localDataSource.clearData()
         verify(prefsStorage).clear()

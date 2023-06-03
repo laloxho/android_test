@@ -78,6 +78,23 @@ class ProductDaoTest {
     }
 
     @Test
+    fun getProductByIdTest() = runBlocking {
+        productsDao.insertAll(products)
+        val productsDb = productsDao.getProductById("2618ec65-f996-4b12-898b-b6cf1cc32384")
+        assertEquals(productsDb.id, "2618ec65-f996-4b12-898b-b6cf1cc32384")
+        assertEquals(productsDb.name, "Combo Amigos")
+        assertEquals(productsDb.price, 189.00f)
+    }
+
+    @Test
+    fun updateProductTest() = runBlocking {
+        productsDao.insertAll(products)
+        productsDao.updateProduct(1, "2618ec65-f996-4b12-898b-b6cf1cc32384")
+        val productsDb = productsDao.getProductById("2618ec65-f996-4b12-898b-b6cf1cc32384")
+        assertEquals(productsDb.isAvailable, true)
+    }
+
+    @Test
     fun getAllEmptyTest() = runBlocking {
         val productsDb = productsDao.getProducts()
         assertTrue(productsDb.isEmpty())

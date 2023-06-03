@@ -2,6 +2,7 @@ package io.parrotsoftware.qatest.presentation.list
 
 import android.view.View
 import com.airbnb.epoxy.EpoxyController
+import io.parrotsoftware.qatest.R
 import io.parrotsoftware.qatest.itemCategory
 import io.parrotsoftware.qatest.itemProduct
 
@@ -30,8 +31,11 @@ class CategoryController(
                     itemProduct {
                         id(product.product.id)
                         item(product)
-                        onClick { _: View ->
-                            listener.onProductSelected(product)
+                        onClick { view: View ->
+                            when (view.id) {
+                                R.id.switchAvailability -> listener.onProductSelected(product)
+                                else -> listener.onProductSelected(product.product.id)
+                            }
                         }
                     }
                 }

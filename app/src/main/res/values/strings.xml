@@ -9,5 +9,12 @@
 
     <string name="category_product_count">%d productos</string>
 
+    <!-- Login -->
+    <string name="login_button">Iniciar Sesión</string>
+
+    <!-- Detail -->
+    <string name="detail_description">Descripción:</string>
+    <string name="detail_available">Producto disponible</string>
+    <string name="detail_unavailable">Producto no disponible</string>
 
 </resources>
