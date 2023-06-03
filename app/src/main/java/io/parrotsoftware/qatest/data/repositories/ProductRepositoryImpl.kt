@@ -67,6 +67,7 @@ class ProductRepositoryImpl @Inject constructor(
         localDataSource.updateProduct(if (isAvailable) 1 else 0, productId)
         return RepositoryResult()
     }
+
     override suspend fun getProductById(id: String): Flow<Product> = flow {
         emit(localDataSource.getProductById(id).toProduct())
     }.flowOn(Dispatchers.IO)
