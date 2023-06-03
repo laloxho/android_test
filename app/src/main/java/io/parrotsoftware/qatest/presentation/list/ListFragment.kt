@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,11 +17,13 @@ import io.parrotsoftware.qatest.R
 import io.parrotsoftware.qatest.utils.observe
 import io.parrotsoftware.qatest.utils.toast
 import io.parrotsoftware.qatest.databinding.FragmentListBinding
+import io.parrotsoftware.qatest.utils.menuProvider
 
 @AndroidEntryPoint
 class ListFragment :
     Fragment(),
-    CategoryListener {
+    CategoryListener,
+    MenuProvider {
 
     private val viewModel: ListViewModel by viewModels()
     private lateinit var binding: FragmentListBinding
@@ -32,7 +35,6 @@ class ListFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         showSupportActionBar()
-        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -54,16 +56,16 @@ class ListFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        menuProvider(this)
         viewModel.initView()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.logout_menu, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.logout_menu, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
             R.id.menu_logout -> {
                 viewModel.logout().also {
                     findNavController().navigate(
@@ -72,7 +74,7 @@ class ListFragment :
                 }
             }
         }
-        return super.onOptionsItemSelected(item)
+        return false
     }
 
     private fun showSupportActionBar() {
