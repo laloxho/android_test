@@ -1,6 +1,5 @@
 package io.parrotsoftware.qatest.presentation.composables
 
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -25,7 +24,7 @@ fun LoadImage(url: String?, modifier: Modifier = Modifier) {
         contentScale = ContentScale.Fit
     ) {
         when (painter.state) {
-            is AsyncImagePainter.State.Loading -> CircularProgressIndicator()
+            is AsyncImagePainter.State.Loading -> LoadingCircular()
             is AsyncImagePainter.State.Error -> ImageError()
             else -> SubcomposeAsyncImageContent()
         }
