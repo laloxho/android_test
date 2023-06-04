@@ -83,7 +83,10 @@ class ListViewModel @Inject constructor(
             )
 
             if (response.isError) {
-                _viewState.value = ListViewState.ErrorUpdatingItem
+                _viewState.value = when (response.error?.code) {
+                    UNAUTHORIZED -> ListViewState.InvalidSession
+                    else -> ListViewState.ErrorUpdatingItem
+                }
                 return@launch
             }
 
@@ -132,5 +135,9 @@ class ListViewModel @Inject constructor(
         viewModelScope.launch {
             logoutUseCase()
         }
+    }
+
+    companion object {
+        private const val UNAUTHORIZED = "401"
     }
 }
