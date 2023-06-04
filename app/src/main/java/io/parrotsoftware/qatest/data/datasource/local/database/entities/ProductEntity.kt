@@ -17,5 +17,5 @@ data class ProductEntity(
     val image: String,
     val price: Float,
     val isAvailable: Boolean,
-    @Embedded val category: Category
+    @Embedded val category: Category,
 )

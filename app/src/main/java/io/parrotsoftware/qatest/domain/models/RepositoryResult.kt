@@ -2,7 +2,7 @@ package io.parrotsoftware.qatest.domain.models
 
 data class RepositoryError(
     val code: String,
-    val message: String
+    val message: String,
 )
 
 data class RepositoryResult<T>(
@@ -12,8 +12,8 @@ data class RepositoryResult<T>(
     constructor(errorCode: String, errorMessage: String) : this(
         error = RepositoryError(
             errorCode,
-            errorMessage
-        )
+            errorMessage,
+        ),
     )
 
     val isError: Boolean

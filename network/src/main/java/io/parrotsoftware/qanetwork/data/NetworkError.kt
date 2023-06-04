@@ -1,22 +1,22 @@
-package io.parrotsoftware.qa_network.data
+package io.parrotsoftware.qanetwork.data
 
 enum class NetworkErrorType {
     CONNECTION_ERROR,
     API_ERROR,
-    UNKNOWN_ERROR
+    UNKNOWN_ERROR,
 }
 
 // Represents a Standard Error from Parrot API
 data class APIError(
     val code: String,
-    val message: String
+    val message: String,
 )
 
 data class NetworkError(
     var type: NetworkErrorType,
     var rawError: String? = null,
     var errorCode: String? = null,
-    var apiError: APIError? = null
+    var apiError: APIError? = null,
 ) {
     val requiredErrorCode: String
         get() {

@@ -8,6 +8,6 @@ class SetProductsStateUseCase @Inject constructor(private val productRepository:
     suspend operator fun invoke(
         accessToken: String,
         productId: String,
-        isAvailable: Boolean
+        isAvailable: Boolean,
     ) = productRepository.setProductState(accessToken, productId, isAvailable)
 }

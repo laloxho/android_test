@@ -28,7 +28,8 @@ class ProductDaoTest {
         "2 Subs de 15 cm (elige entre Jamón de Pavo, Sub de Pollo",
         "https://d1ralsognjng37.cloudfront.net/b49451f6-4f81-404e-bb97-2e486100b2b8.jpeg",
         189.00f,
-        false, category
+        false,
+        category,
     )
 
     private val product2 = ProductEntity(
@@ -37,7 +38,8 @@ class ProductDaoTest {
         "2 Subs de 15 cm (elige entre Jamón de Pavo, Sub de Pollo o Atún)",
         "https://d1ralsognjng37.cloudfront.net/b49451f6-4f81-404e-bb97-2e486100b2b8.jpeg",
         189.00f,
-        false, category
+        false,
+        category,
     )
 
     private val products = listOf(product1, product2)

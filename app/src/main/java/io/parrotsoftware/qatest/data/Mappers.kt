@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.data
 
-import io.parrotsoftware.qa_network.data.responses.ApiCategory
-import io.parrotsoftware.qa_network.data.responses.ApiProduct
-import io.parrotsoftware.qa_network.data.responses.ApiProductAvailability
+import io.parrotsoftware.qanetwork.data.responses.ApiCategory
+import io.parrotsoftware.qanetwork.data.responses.ApiProduct
+import io.parrotsoftware.qanetwork.data.responses.ApiProductAvailability
 import io.parrotsoftware.qatest.data.datasource.local.database.entities.ProductEntity
 import io.parrotsoftware.qatest.domain.models.Category
 import io.parrotsoftware.qatest.domain.models.Product
@@ -14,7 +14,7 @@ fun ApiProduct.toProduct() = Product(
     imageUrl,
     price,
     availability == ApiProductAvailability.AVAILABLE,
-    category.toCategory()
+    category.toCategory(),
 )
 
 fun ApiCategory.toCategory() = Category(uuid, name, sortPosition)
@@ -26,7 +26,7 @@ fun ProductEntity.toProduct() = Product(
     image,
     price,
     isAvailable,
-    category
+    category,
 )
 
 fun Product.toProductEntity() = ProductEntity(
@@ -36,5 +36,5 @@ fun Product.toProductEntity() = ProductEntity(
     image,
     price,
     isAvailable,
-    category
+    category,
 )

@@ -1,18 +1,15 @@
-package io.parrotsoftware.qa_network.data.responses
-
+package io.parrotsoftware.qanetwork.data.responses
 
 enum class ApiProductAvailability(value: String) {
     AVAILABLE("AVAILABLE"),
-    UNAVAILABLE("UNAVAILABLE")
+    UNAVAILABLE("UNAVAILABLE"),
 }
-
 
 data class ApiCategory(
     val uuid: String,
     val name: String,
-    val sortPosition: Int
+    val sortPosition: Int,
 )
-
 
 data class ApiProduct(
     val uuid: String,
@@ -21,5 +18,5 @@ data class ApiProduct(
     val imageUrl: String,
     val price: Float,
     val availability: ApiProductAvailability,
-    val category: ApiCategory
+    val category: ApiCategory,
 )

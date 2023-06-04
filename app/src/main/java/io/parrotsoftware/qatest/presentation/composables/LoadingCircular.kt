@@ -24,12 +24,12 @@ fun LoadingCircular(
             .fillMaxHeight()
             .fillMaxWidth()
             .padding(vertical = 8.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator(
             modifier = Modifier.size(size = size),
             color = Orange,
-            strokeWidth = 4.dp
+            strokeWidth = 4.dp,
         )
     }
 }

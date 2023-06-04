@@ -18,7 +18,9 @@ import org.mockito.junit.MockitoRule
 
 class UserExistsUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
+
     @Mock private lateinit var repository: UserRepository
     private lateinit var userExistsUseCase: UserExistsUseCase
 

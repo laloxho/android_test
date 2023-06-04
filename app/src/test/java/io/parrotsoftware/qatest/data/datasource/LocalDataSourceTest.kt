@@ -23,9 +23,12 @@ import org.mockito.junit.MockitoRule
 
 class LocalDataSourceTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var localDataSource: LocalDataSource
+
     @Mock private lateinit var productsDao: ProductsDao
+
     @Mock private lateinit var prefsStorage: FakePrefsStorage
 
     @Before

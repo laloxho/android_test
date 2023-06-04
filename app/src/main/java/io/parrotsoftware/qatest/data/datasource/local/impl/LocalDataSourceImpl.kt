@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class LocalDataSourceImpl @Inject constructor(
     private val productsDao: ProductsDao,
-    private val prefsStorage: PrefsStorage
+    private val prefsStorage: PrefsStorage,
 ) : LocalDataSource {
 
     override suspend fun insertAll(products: List<ProductEntity>) = productsDao.insertAll(products)

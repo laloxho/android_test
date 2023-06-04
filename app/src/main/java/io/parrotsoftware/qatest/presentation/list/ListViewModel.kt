@@ -22,7 +22,7 @@ class ListViewModel @Inject constructor(
     private val getStoreUseCase: GetStoreUseCase,
     private val getProductsUseCase: GetProductsUseCase,
     private val setProductsStateUseCase: SetProductsStateUseCase,
-    private val logoutUseCase: LogoutUseCase
+    private val logoutUseCase: LogoutUseCase,
 ) : ViewModel(), LifecycleObserver {
 
     private val _viewState = MutableLiveData<ListViewState>()
@@ -53,7 +53,7 @@ class ListViewModel @Inject constructor(
 
             val response = getProductsUseCase.invoke(
                 credentials.requiredResult.access,
-                store.requiredResult.id
+                store.requiredResult.id,
             )
 
             if (response.isError) {
@@ -79,7 +79,7 @@ class ListViewModel @Inject constructor(
             val response = setProductsStateUseCase.invoke(
                 credentials.requiredResult.access,
                 productId,
-                isAvailable
+                isAvailable,
             )
 
             if (response.isError) {
@@ -126,7 +126,7 @@ class ListViewModel @Inject constructor(
             ExpandableCategory(
                 category,
                 categoriesExpanded[category.id] ?: false,
-                productGroup
+                productGroup,
             )
         }
     }

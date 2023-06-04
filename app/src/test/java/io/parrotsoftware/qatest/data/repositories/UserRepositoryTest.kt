@@ -1,7 +1,7 @@
 package io.parrotsoftware.qatest.data.repositories
 
-import io.parrotsoftware.qa_network.data.NetworkResult
-import io.parrotsoftware.qa_network.data.responses.ApiSingleResponse
+import io.parrotsoftware.qanetwork.data.NetworkResult
+import io.parrotsoftware.qanetwork.data.responses.ApiSingleResponse
 import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
 import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import io.parrotsoftware.qatest.domain.repositories.UserRepository
@@ -22,9 +22,11 @@ import org.mockito.junit.MockitoRule
 
 class UserRepositoryTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
 
     @Mock private lateinit var remoteDataSource: RemoteDataSource
+
     @Mock private lateinit var localDataSource: LocalDataSource
 
     private lateinit var userRepository: UserRepository

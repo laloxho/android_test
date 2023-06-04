@@ -16,7 +16,7 @@ class ShowDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShowDetailBinding
 
-    private val args : ShowDetailFragmentArgs by navArgs()
+    private val args: ShowDetailFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class ShowDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentShowDetailBinding.inflate(inflater)
         binding.composeContainer.apply {

@@ -19,7 +19,9 @@ import org.mockito.junit.MockitoRule
 
 class SetProductsStateUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
+
     @Mock private lateinit var repository: ProductRepository
     private lateinit var setProductsStateUseCase: SetProductsStateUseCase
 

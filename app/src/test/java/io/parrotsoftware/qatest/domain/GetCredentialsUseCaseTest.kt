@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.domain
 
-import io.parrotsoftware.qatest.fake.FakeUserRepository
 import io.parrotsoftware.qatest.domain.models.Credentials
 import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
+import io.parrotsoftware.qatest.fake.FakeUserRepository
 import io.parrotsoftware.qatest.utils.assertIsInstanceOf
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.equalTo
@@ -15,7 +15,8 @@ import org.mockito.junit.MockitoRule
 
 class GetCredentialsUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var repository: FakeUserRepository
     private lateinit var getCredentialsUseCase: GetCredentialsUseCase
 

@@ -1,4 +1,4 @@
-package io.parrotsoftware.qa_network.data
+package io.parrotsoftware.qanetwork.data
 
 class NetworkResult<T>(val result: T? = null, val networkError: NetworkError? = null) {
     val isError: Boolean

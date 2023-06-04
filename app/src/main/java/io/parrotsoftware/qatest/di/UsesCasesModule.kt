@@ -10,8 +10,8 @@ import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsByIdUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
-import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
 import io.parrotsoftware.qatest.domain.usescases.LoginUseCase
+import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
 import io.parrotsoftware.qatest.domain.usescases.SetProductsStateUseCase
 import io.parrotsoftware.qatest.domain.usescases.UserExistsUseCase
 

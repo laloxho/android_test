@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.fake
 
-import io.parrotsoftware.qa_network.data.responses.ApiCredentials
-import io.parrotsoftware.qa_network.data.responses.ApiStore
-import io.parrotsoftware.qa_network.data.responses.ApiUserWithStores
+import io.parrotsoftware.qanetwork.data.responses.ApiCredentials
+import io.parrotsoftware.qanetwork.data.responses.ApiStore
+import io.parrotsoftware.qanetwork.data.responses.ApiUserWithStores
 import io.parrotsoftware.qatest.data.toProductEntity
 import io.parrotsoftware.qatest.domain.models.Category
 import io.parrotsoftware.qatest.domain.models.Credentials
@@ -34,7 +34,8 @@ object FakeData {
         "2 Subs de 15 cm (elige entre Jamón de Pavo, Sub de Pollo",
         "https://d1ralsognjng37.cloudfront.net/b49451f6-4f81-404e-bb97-2e486100b2b8.jpeg",
         189.00f,
-        false, category
+        false,
+        category,
     )
 
     private val product2 = Product(
@@ -43,7 +44,8 @@ object FakeData {
         "2 Subs de 15 cm (elige entre Jamón de Pavo, Sub de Pollo o Atún)",
         "https://d1ralsognjng37.cloudfront.net/b49451f6-4f81-404e-bb97-2e486100b2b8.jpeg",
         189.00f,
-        false, category
+        false,
+        category,
     )
 
     fun givenStoreId() = storeId

@@ -1,17 +1,17 @@
 package io.parrotsoftware.qatest.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import io.parrotsoftware.qatest.fake.FakeData.givenCredentials
-import io.parrotsoftware.qatest.fake.FakeData.givenListProduct
-import io.parrotsoftware.qatest.fake.FakeData.givenStore
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
 import io.parrotsoftware.qatest.domain.usescases.GetCredentialsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
 import io.parrotsoftware.qatest.domain.usescases.LogoutUseCase
 import io.parrotsoftware.qatest.domain.usescases.SetProductsStateUseCase
+import io.parrotsoftware.qatest.fake.FakeData.givenCredentials
 import io.parrotsoftware.qatest.fake.FakeData.givenEnabledProduct
 import io.parrotsoftware.qatest.fake.FakeData.givenExpandableCategory
+import io.parrotsoftware.qatest.fake.FakeData.givenListProduct
+import io.parrotsoftware.qatest.fake.FakeData.givenStore
 import io.parrotsoftware.qatest.presentation.list.ListViewModel
 import io.parrotsoftware.qatest.presentation.list.ListViewState
 import io.parrotsoftware.qatest.rules.CoroutineRule
@@ -32,13 +32,23 @@ import org.mockito.junit.MockitoRule
 
 class ListViewModelTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
-    @Rule @JvmField val testRule: TestRule = InstantTaskExecutorRule()
-    @ExperimentalCoroutinesApi @get:Rule var coroutineRule = CoroutineRule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
+
+    @Rule @JvmField
+    val testRule: TestRule = InstantTaskExecutorRule()
+
+    @ExperimentalCoroutinesApi @get:Rule
+    var coroutineRule = CoroutineRule()
+
     @Mock private lateinit var getCredentialsUseCase: GetCredentialsUseCase
+
     @Mock private lateinit var getStoreUseCase: GetStoreUseCase
+
     @Mock private lateinit var getProductsUseCase: GetProductsUseCase
+
     @Mock private lateinit var setProductsStateUseCase: SetProductsStateUseCase
+
     @Mock private lateinit var logoutUseCase: LogoutUseCase
     private lateinit var listViewModel: ListViewModel
 
@@ -49,7 +59,7 @@ class ListViewModelTest {
             getStoreUseCase,
             getProductsUseCase,
             setProductsStateUseCase,
-            logoutUseCase
+            logoutUseCase,
         )
     }
 

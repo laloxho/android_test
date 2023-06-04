@@ -1,25 +1,25 @@
-package io.parrotsoftware.qa_network.interactors.impl
+package io.parrotsoftware.qanetwork.interactors.impl
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import io.parrotsoftware.qa_network.data.APIError
-import io.parrotsoftware.qa_network.data.NetworkError
-import io.parrotsoftware.qa_network.data.NetworkErrorType
-import io.parrotsoftware.qa_network.data.NetworkResult
-import io.parrotsoftware.qa_network.interactors.NetworkInteractor
-import java.io.IOException
+import io.parrotsoftware.qanetwork.data.APIError
+import io.parrotsoftware.qanetwork.data.NetworkError
+import io.parrotsoftware.qanetwork.data.NetworkErrorType
+import io.parrotsoftware.qanetwork.data.NetworkResult
+import io.parrotsoftware.qanetwork.interactors.NetworkInteractor
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import java.io.IOException
 import javax.inject.Inject
 
-class NetworkInteractorImpl @Inject constructor(): NetworkInteractor {
+class NetworkInteractorImpl @Inject constructor() : NetworkInteractor {
 
     override suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher,
-        apiCall: suspend () -> T
+        apiCall: suspend () -> T,
     ): NetworkResult<T> = withContext(dispatcher) {
         try {
             val response = apiCall.invoke()
@@ -35,7 +35,7 @@ class NetworkInteractorImpl @Inject constructor(): NetworkInteractor {
                 NetworkError(
                     NetworkErrorType.CONNECTION_ERROR,
                     throwable.message,
-                    NetworkErrorType.CONNECTION_ERROR.name
+                    NetworkErrorType.CONNECTION_ERROR.name,
                 )
             }
             is HttpException -> {
@@ -46,7 +46,7 @@ class NetworkInteractorImpl @Inject constructor(): NetworkInteractor {
                     NetworkErrorType.API_ERROR,
                     bodyResponse,
                     codeError ?: throwable.code().toString(),
-                    apiError
+                    apiError,
                 )
             }
             is JsonDataException -> {

@@ -1,7 +1,7 @@
 package io.parrotsoftware.qatest.domain
 
-import io.parrotsoftware.qatest.fake.FakeUserRepository
 import io.parrotsoftware.qatest.domain.usescases.GetStoreUseCase
+import io.parrotsoftware.qatest.fake.FakeUserRepository
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.not
@@ -14,7 +14,8 @@ import org.mockito.junit.MockitoRule
 
 class GetStoreUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var repository: FakeUserRepository
     private lateinit var getStoreUseCase: GetStoreUseCase
 

@@ -21,7 +21,7 @@ fun LoadImage(url: String?, modifier: Modifier = Modifier) {
             .build(),
         contentDescription = null,
         modifier = modifier,
-        contentScale = ContentScale.Fit
+        contentScale = ContentScale.Fit,
     ) {
         when (painter.state) {
             is AsyncImagePainter.State.Loading -> LoadingCircular()
@@ -35,6 +35,6 @@ fun LoadImage(url: String?, modifier: Modifier = Modifier) {
 fun ImageError() {
     Icon(
         painter = painterResource(id = R.drawable.ic_place_holder),
-        contentDescription = null
+        contentDescription = null,
     )
 }

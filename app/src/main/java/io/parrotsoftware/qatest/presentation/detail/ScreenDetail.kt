@@ -42,7 +42,6 @@ import io.parrotsoftware.qatest.presentation.theme.bold
 
 @Composable
 fun ScreenDetail(showDetailViewModel: ShowDetailViewModel = hiltViewModel(), productId: String) {
-
     LaunchedEffect(key1 = Unit) {
         showDetailViewModel.getProductById(productId)
     }
@@ -59,18 +58,18 @@ fun ShowData(product: Product) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(rememberScrollState()),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(this@BoxWithConstraints.maxHeight)
+                    .height(this@BoxWithConstraints.maxHeight),
             ) {
                 LoadImage(
                     product.image,
                     Modifier
                         .fillMaxWidth()
-                        .height(270.dp)
+                        .height(270.dp),
                 )
                 Card(
                     modifier = Modifier
@@ -98,20 +97,20 @@ fun ProductName(name: String, price: String) {
             .padding(top = 8.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(
             modifier = Modifier.weight(1f),
             text = name,
             style = TextStyle_MainTitle,
-            color = Color.White
+            color = Color.White,
         )
         Spacer(modifier = Modifier.padding(horizontal = 10.dp))
         Text(
-            text = "$${price}",
+            text = "$$price",
             style = TextStyle_SecondTitle.bold(),
             color = Color.White,
-            maxLines = 1
+            maxLines = 1,
         )
     }
 }
@@ -123,7 +122,7 @@ fun ProductDescription(description: String) {
             .padding(top = 20.dp),
         text = stringResource(id = R.string.detail_description),
         style = TextStyle_SecondTitle.bold(),
-        color = Color.White
+        color = Color.White,
     )
     Text(
         modifier = Modifier
@@ -131,7 +130,7 @@ fun ProductDescription(description: String) {
         text = description,
         style = TextStyle_Info,
         color = Color.White,
-        lineHeight = 28.sp
+        lineHeight = 28.sp,
     )
 }
 
@@ -144,12 +143,12 @@ fun ProductAvailability(available: Boolean) {
         modifier = Modifier
             .padding(25.dp)
             .fillMaxWidth()
-            .wrapContentWidth(Alignment.CenterHorizontally)
+            .wrapContentWidth(Alignment.CenterHorizontally),
     ) {
         Text(
             text = stringResource(id = if (available) R.string.detail_available else R.string.detail_unavailable),
             color = if (available) Color.White else Color.Black,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp),
         )
     }
 }
