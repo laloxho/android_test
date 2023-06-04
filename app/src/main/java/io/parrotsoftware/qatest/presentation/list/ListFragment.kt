@@ -7,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,6 +17,7 @@ import io.parrotsoftware.qatest.utils.observe
 import io.parrotsoftware.qatest.utils.toast
 import io.parrotsoftware.qatest.databinding.FragmentListBinding
 import io.parrotsoftware.qatest.utils.menuProvider
+import io.parrotsoftware.qatest.utils.supportActionBar
 
 @AndroidEntryPoint
 class ListFragment :
@@ -32,9 +32,9 @@ class ListFragment :
         CategoryController(this)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        showSupportActionBar()
+    override fun onResume() {
+        super.onResume()
+        setSupportActionBar()
     }
 
     override fun onCreateView(
@@ -77,8 +77,11 @@ class ListFragment :
         return false
     }
 
-    private fun showSupportActionBar() {
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+    private fun setSupportActionBar() {
+        supportActionBar()?.apply {
+            show()
+            setDisplayHomeAsUpEnabled(false)
+        }
     }
 
     private fun onViewState(state: ListViewState?) {

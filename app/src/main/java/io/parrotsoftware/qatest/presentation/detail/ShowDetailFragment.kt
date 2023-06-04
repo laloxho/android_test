@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import io.parrotsoftware.qatest.databinding.FragmentShowDetailBinding
+import io.parrotsoftware.qatest.utils.supportActionBar
 
 @AndroidEntryPoint
 class ShowDetailFragment : Fragment() {
@@ -16,6 +17,11 @@ class ShowDetailFragment : Fragment() {
     private lateinit var binding: FragmentShowDetailBinding
 
     private val args : ShowDetailFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        supportActionBar()?.setDisplayHomeAsUpEnabled(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
