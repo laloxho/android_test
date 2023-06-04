@@ -66,13 +66,7 @@ class ListFragment :
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
-            R.id.menu_logout -> {
-                viewModel.logout().also {
-                    findNavController().navigate(
-                        ListFragmentDirections.actionListFragmentToLoginFragment()
-                    )
-                }
-            }
+            R.id.menu_logout -> { logout() }
         }
         return false
     }
@@ -84,16 +78,28 @@ class ListFragment :
         }
     }
 
+    private fun logout() {
+        viewModel.logout().also {
+            findNavController().navigate(
+                ListFragmentDirections.actionListFragmentToLoginFragment()
+            )
+        }
+    }
+
     private fun onViewState(state: ListViewState?) {
         when (state) {
             ListViewState.ErrorLoadingItems -> {
-                requireContext().toast("Error al cargar los productos")
+                requireContext().toast(R.string.error_load_products)
             }
             is ListViewState.ItemsLoaded -> {
                 categoryController.categories = state.categories
             }
             ListViewState.ErrorUpdatingItem -> {
-                requireContext().toast("Error al actualizar el producto")
+                requireContext().toast(R.string.error_update_product)
+            }
+            ListViewState.InvalidSession -> {
+                requireContext().toast(R.string.error_session_expired)
+                logout()
             }
             else -> {}
         }

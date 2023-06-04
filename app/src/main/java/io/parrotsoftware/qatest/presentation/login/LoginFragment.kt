@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import io.parrotsoftware.qatest.R
 import io.parrotsoftware.qatest.databinding.FragmentLoginBinding
 import io.parrotsoftware.qatest.utils.observe
 import io.parrotsoftware.qatest.utils.toast
@@ -47,7 +48,7 @@ class LoginFragment : Fragment() {
     private fun onViewState(state: LoginViewState?) {
         when (state) {
             LoginViewState.LoginError -> {
-                requireContext().toast("Error al iniciar sesión")
+                requireContext().toast(R.string.error_login)
             }
             LoginViewState.LoginSuccess -> {
                 findNavController().navigate(
