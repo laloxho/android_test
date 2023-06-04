@@ -9,5 +9,18 @@
 
     <string name="category_product_count">%d productos</string>
 
+    <!-- Login -->
+    <string name="login_button">Iniciar Sesión</string>
+
+    <!-- Detail -->
+    <string name="detail_description">Descripción:</string>
+    <string name="detail_available">Producto disponible</string>
+    <string name="detail_unavailable">Producto no disponible</string>
+
+    <!-- Errors -->
+    <string name="error_session_expired">Tu sesión ha expirado</string>
+    <string name="error_update_product">Error al actualizar el producto</string>
+    <string name="error_load_products">Error al cargar los productos</string>
+    <string name="error_login">Error al iniciar sesión</string>
 
 </resources>

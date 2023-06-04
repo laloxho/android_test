@@ -7,44 +7,76 @@
 
         <variable
             name="item"
-            type="io.parrotsoftware.qatest.ui.list.EnabledProduct" />
+            type="io.parrotsoftware.qatest.presentation.list.EnabledProduct" />
 
         <variable
             name="onClick"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{onClick}">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textProductName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="2dp"
             android:text="@{item.product.name}"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textProductPrice"
             app:layout_constraintEnd_toStartOf="@+id/switchAvailability"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgProduct"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Papas Fritas" />
 
-        <Switch
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textProductPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/switchAvailability"
+            app:layout_constraintStart_toStartOf="@id/textProductName"
+            app:layout_constraintTop_toBottomOf="@+id/textProductName"
+            app:price="@{item.product.price}"
+            tools:text="Precio" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:adjustViewBounds="true"
+            app:image_url="@{item.product.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textProductName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.15"
+            tools:src="@drawable/ic_logo_connect" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchAvailability"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:checked="@{item.enabled}"
+            android:onClick="@{onClick}"
+            android:thumb="@drawable/thumb_layer_list"
+            android:scaleX="0.65"
+            android:scaleY="0.65"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="@{onClick}"
-            android:checked="@{item.enabled}"
+            app:track="@drawable/track_background"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

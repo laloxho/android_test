@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="io.parrotsoftware.qatest.ui.login.LoginFragment"
+        android:name="io.parrotsoftware.qatest.presentation.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -18,6 +18,25 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="io.parrotsoftware.qatest.ui.list.ListFragment"
-        tools:layout="@layout/fragment_list"/>
+        android:name="io.parrotsoftware.qatest.presentation.list.ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/listFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_listFragment_to_showDetailFragment"
+            app:destination="@+id/showDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/showDetailFragment"
+        android:name="io.parrotsoftware.qatest.presentation.detail.ShowDetailFragment"
+        tools:layout="@layout/fragment_show_detail">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
 </navigation>
