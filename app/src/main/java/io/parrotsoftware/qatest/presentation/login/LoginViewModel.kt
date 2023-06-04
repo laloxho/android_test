@@ -14,7 +14,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     private val userExistsUseCase: UserExistsUseCase,
-    ) : ViewModel(), LifecycleObserver {
+) : ViewModel(), LifecycleObserver {
 
     private val viewState = MutableLiveData<LoginViewState>()
     fun getViewState() = viewState

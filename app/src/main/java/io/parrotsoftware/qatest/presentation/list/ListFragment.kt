@@ -13,11 +13,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.parrotsoftware.qatest.R
-import io.parrotsoftware.qatest.utils.observe
-import io.parrotsoftware.qatest.utils.toast
 import io.parrotsoftware.qatest.databinding.FragmentListBinding
 import io.parrotsoftware.qatest.utils.menuProvider
+import io.parrotsoftware.qatest.utils.observe
 import io.parrotsoftware.qatest.utils.supportActionBar
+import io.parrotsoftware.qatest.utils.toast
 
 @AndroidEntryPoint
 class ListFragment :
@@ -40,7 +40,7 @@ class ListFragment :
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentListBinding.inflate(inflater)
         binding.lifecycleOwner = this
@@ -81,7 +81,7 @@ class ListFragment :
     private fun logout() {
         viewModel.logout().also {
             findNavController().navigate(
-                ListFragmentDirections.actionListFragmentToLoginFragment()
+                ListFragmentDirections.actionListFragmentToLoginFragment(),
             )
         }
     }
@@ -115,7 +115,7 @@ class ListFragment :
 
     override fun onProductSelected(product: String) {
         findNavController().navigate(
-            ListFragmentDirections.actionListFragmentToShowDetailFragment(product)
+            ListFragmentDirections.actionListFragmentToShowDetailFragment(product),
         )
     }
 }

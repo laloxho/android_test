@@ -22,10 +22,17 @@ import org.mockito.junit.MockitoRule
 
 class LoginViewModelTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
-    @Rule @JvmField val testRule: TestRule = InstantTaskExecutorRule()
-    @ExperimentalCoroutinesApi @get:Rule var coroutineRule = CoroutineRule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
+
+    @Rule @JvmField
+    val testRule: TestRule = InstantTaskExecutorRule()
+
+    @ExperimentalCoroutinesApi @get:Rule
+    var coroutineRule = CoroutineRule()
+
     @Mock private lateinit var loginUseCase: LoginUseCase
+
     @Mock private lateinit var userExistsUseCase: UserExistsUseCase
     private lateinit var loginViewModel: LoginViewModel
 

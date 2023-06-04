@@ -14,7 +14,7 @@ fun ApiProduct.toProduct() = Product(
     imageUrl,
     price,
     availability == ApiProductAvailability.AVAILABLE,
-    category.toCategory()
+    category.toCategory(),
 )
 
 fun ApiCategory.toCategory() = Category(uuid, name, sortPosition)
@@ -26,7 +26,7 @@ fun ProductEntity.toProduct() = Product(
     image,
     price,
     isAvailable,
-    category
+    category,
 )
 
 fun Product.toProductEntity() = ProductEntity(
@@ -36,5 +36,5 @@ fun Product.toProductEntity() = ProductEntity(
     image,
     price,
     isAvailable,
-    category
+    category,
 )

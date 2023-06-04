@@ -5,11 +5,11 @@ import io.parrotsoftware.qatest.domain.models.Product
 
 data class EnabledProduct(
     val product: Product,
-    val enabled: Boolean
+    val enabled: Boolean,
 )
 
 data class ExpandableCategory(
     val category: Category,
     val expanded: Boolean,
-    val products: List<EnabledProduct>
+    val products: List<EnabledProduct>,
 )

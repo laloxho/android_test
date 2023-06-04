@@ -22,7 +22,15 @@ android {
 
     buildTypes {
         named("release") {
+            isMinifyEnabled = true
+            isDebuggable = false
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+
+        named("debug") {
             isMinifyEnabled = false
+            isDebuggable = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -47,7 +55,6 @@ android {
     kapt {
         correctErrorTypes = true
     }
-
 }
 
 dependencies {
@@ -79,7 +86,7 @@ dependencies {
 
     kapt(Dependencies.roomCompiler)
     kapt(Dependencies.daggerHiltCompiler)
-    kapt (Dependencies.epoxyProcessor)
+    kapt(Dependencies.epoxyProcessor)
 
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockitoInline)

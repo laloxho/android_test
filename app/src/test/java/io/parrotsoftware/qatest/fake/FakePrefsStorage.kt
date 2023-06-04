@@ -2,7 +2,7 @@ package io.parrotsoftware.qatest.fake
 
 import io.parrotsoftware.qatest.data.datasource.local.preferences.PrefsStorage
 
-class FakePrefsStorage: PrefsStorage {
+class FakePrefsStorage : PrefsStorage {
 
     private val values = mutableMapOf<String, Any>()
 

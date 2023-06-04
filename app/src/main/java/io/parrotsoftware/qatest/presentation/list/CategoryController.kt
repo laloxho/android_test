@@ -7,7 +7,7 @@ import io.parrotsoftware.qatest.itemCategory
 import io.parrotsoftware.qatest.itemProduct
 
 class CategoryController(
-    private val listener: CategoryListener
+    private val listener: CategoryListener,
 ) : EpoxyController() {
 
     var categories: List<ExpandableCategory> = emptyList()

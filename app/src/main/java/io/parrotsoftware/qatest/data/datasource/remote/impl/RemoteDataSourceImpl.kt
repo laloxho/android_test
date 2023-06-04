@@ -8,8 +8,8 @@ import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(
-    private val networkInteractor: NetworkInteractor
-): RemoteDataSource {
+    private val networkInteractor: NetworkInteractor,
+) : RemoteDataSource {
 
     override suspend fun getProducts(accessToken: String, storeId: String) =
         networkInteractor.safeApiCall {
@@ -19,13 +19,13 @@ class RemoteDataSourceImpl @Inject constructor(
     override suspend fun updateProduct(
         accessToken: String,
         productId: String,
-        body: ApiUpdateProductRequest
+        body: ApiUpdateProductRequest,
     ) =
         networkInteractor.safeApiCall {
             ParrotApi.service.updateProduct(
                 "Bearer $accessToken",
                 productId,
-                body
+                body,
             )
         }
 

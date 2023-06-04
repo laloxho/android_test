@@ -21,25 +21,25 @@ interface ParrotApiService {
 
     @POST("/api/auth/token")
     suspend fun auth(
-        @Body authRequest: ApiAuthRequest
+        @Body authRequest: ApiAuthRequest,
     ): ApiCredentials
 
     @GET("/api/v1/users/me")
     suspend fun getMe(
-        @Header("Authorization") access: String
+        @Header("Authorization") access: String,
     ): ApiSingleResponse<ApiUserWithStores>
 
     @GET("/api/v1/products/")
     suspend fun getProducts(
         @Header("Authorization") access: String,
-        @Query("store") storeId: String
+        @Query("store") storeId: String,
     ): ApiListResponse<ApiProduct>
 
     @PUT("/api/v1/products/{product_id}/availability")
     suspend fun updateProduct(
         @Header("Authorization") access: String,
         @Path("product_id") productId: String,
-        @Body request: ApiUpdateProductRequest
+        @Body request: ApiUpdateProductRequest,
     ): ApiSingleResponse<ApiProduct>
 }
 

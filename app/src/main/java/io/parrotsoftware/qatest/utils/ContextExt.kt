@@ -6,9 +6,11 @@ import androidx.annotation.StringRes
 
 fun Context.toast(@StringRes resource: Int, isLengthShort: Boolean = true) =
     Toast.makeText(
-        this, resource, if (isLengthShort) {
+        this,
+        resource,
+        if (isLengthShort) {
             Toast.LENGTH_SHORT
         } else {
             Toast.LENGTH_LONG
-        }
+        },
     ).show()

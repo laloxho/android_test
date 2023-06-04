@@ -11,7 +11,7 @@ interface ProductRepository {
     suspend fun setProductState(
         accessToken: String,
         productId: String,
-        isAvailable: Boolean
+        isAvailable: Boolean,
     ): RepositoryResult<Nothing>
 
     suspend fun getProductById(id: String): Flow<Product>

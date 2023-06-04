@@ -6,12 +6,12 @@ import androidx.compose.ui.unit.sp
 
 val TextStyle_MainTitle = TextStyle(
     fontSize = 24.sp,
-    fontWeight = FontWeight.Bold
+    fontWeight = FontWeight.Bold,
 )
 
 val TextStyle_SecondTitle = TextStyle(
     fontSize = 18.sp,
-    fontWeight = FontWeight.Bold
+    fontWeight = FontWeight.Bold,
 )
 
 val TextStyle_Info = TextStyle(

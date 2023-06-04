@@ -23,7 +23,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentLoginBinding.inflate(inflater)
         binding.lifecycleOwner = this
@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
             }
             LoginViewState.LoginSuccess -> {
                 findNavController().navigate(
-                    LoginFragmentDirections.actionLoginFragmentToListFragment()
+                    LoginFragmentDirections.actionLoginFragmentToListFragment(),
                 )
                 viewModel.navigated()
             }

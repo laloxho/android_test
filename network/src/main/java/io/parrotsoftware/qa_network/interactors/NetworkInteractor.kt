@@ -8,7 +8,6 @@ interface NetworkInteractor {
 
     suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher = Dispatchers.IO,
-        apiCall: suspend () -> T
+        apiCall: suspend () -> T,
     ): NetworkResult<T>
-
 }

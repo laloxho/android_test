@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.models.ResponseState
 import io.parrotsoftware.qatest.domain.usescases.GetProductsByIdUseCase
 import kotlinx.coroutines.launch
@@ -13,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShowDetailViewModel @Inject constructor(
-    private val getProductsByIdUseCase: GetProductsByIdUseCase
+    private val getProductsByIdUseCase: GetProductsByIdUseCase,
 ) : ViewModel() {
 
     private var _product = mutableStateOf<ResponseState>(ResponseState.Loading)

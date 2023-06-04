@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.domain
 
-import io.parrotsoftware.qatest.fake.FakeProductRepository
 import io.parrotsoftware.qatest.domain.models.Product
 import io.parrotsoftware.qatest.domain.usescases.GetProductsUseCase
+import io.parrotsoftware.qatest.fake.FakeProductRepository
 import io.parrotsoftware.qatest.utils.assertIsInstanceOf
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.equalTo
@@ -15,7 +15,8 @@ import org.mockito.junit.MockitoRule
 
 class GetProductsUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var repository: FakeProductRepository
     private lateinit var getProductsUseCase: GetProductsUseCase
 

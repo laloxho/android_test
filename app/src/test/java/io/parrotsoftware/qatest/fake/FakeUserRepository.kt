@@ -1,11 +1,11 @@
 package io.parrotsoftware.qatest.fake
 
-import io.parrotsoftware.qatest.fake.FakeData.givenCredentials
-import io.parrotsoftware.qatest.fake.FakeData.givenStore
 import io.parrotsoftware.qatest.domain.models.Credentials
 import io.parrotsoftware.qatest.domain.models.RepositoryResult
 import io.parrotsoftware.qatest.domain.models.Store
 import io.parrotsoftware.qatest.domain.repositories.UserRepository
+import io.parrotsoftware.qatest.fake.FakeData.givenCredentials
+import io.parrotsoftware.qatest.fake.FakeData.givenStore
 
 class FakeUserRepository : UserRepository {
 

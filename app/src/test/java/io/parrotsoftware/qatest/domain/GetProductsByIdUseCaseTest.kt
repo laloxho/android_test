@@ -16,7 +16,8 @@ import org.mockito.junit.MockitoRule
 
 class GetProductsByIdUseCaseTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var repository: FakeProductRepository
     private lateinit var getProductsByIdUseCase: GetProductsByIdUseCase
 

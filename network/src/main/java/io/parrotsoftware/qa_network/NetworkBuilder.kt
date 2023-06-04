@@ -21,7 +21,7 @@ object NetworkBuilder {
     }
 
     fun build(
-        url: String
+        url: String,
     ): Retrofit {
         val clientBuilder = OkHttpClient.Builder()
             .writeTimeout(60, TimeUnit.SECONDS)
@@ -29,9 +29,10 @@ object NetworkBuilder {
             .connectTimeout(60, TimeUnit.SECONDS)
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
-                    if (BuildConfig.DEBUG)
+                    if (BuildConfig.DEBUG) {
                         level = HttpLoggingInterceptor.Level.BODY
-                }
+                    }
+                },
             )
 
         val retrofitBuilder = Retrofit.Builder()

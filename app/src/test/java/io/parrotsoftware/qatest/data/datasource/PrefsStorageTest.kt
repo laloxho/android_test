@@ -11,7 +11,8 @@ import org.mockito.junit.MockitoRule
 
 class PrefsStorageTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
     private lateinit var prefsStorage: FakePrefsStorage
 
     @Before

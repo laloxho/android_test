@@ -22,9 +22,11 @@ import org.mockito.junit.MockitoRule
 
 class UserRepositoryTest {
 
-    @Rule @JvmField val mockitoRule: MockitoRule = MockitoJUnit.rule()
+    @Rule @JvmField
+    val mockitoRule: MockitoRule = MockitoJUnit.rule()
 
     @Mock private lateinit var remoteDataSource: RemoteDataSource
+
     @Mock private lateinit var localDataSource: LocalDataSource
 
     private lateinit var userRepository: UserRepository
