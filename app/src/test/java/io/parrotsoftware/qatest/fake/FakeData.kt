@@ -1,8 +1,8 @@
 package io.parrotsoftware.qatest.fake
 
-import io.parrotsoftware.qa_network.data.responses.ApiCredentials
-import io.parrotsoftware.qa_network.data.responses.ApiStore
-import io.parrotsoftware.qa_network.data.responses.ApiUserWithStores
+import io.parrotsoftware.qanetwork.data.responses.ApiCredentials
+import io.parrotsoftware.qanetwork.data.responses.ApiStore
+import io.parrotsoftware.qanetwork.data.responses.ApiUserWithStores
 import io.parrotsoftware.qatest.data.toProductEntity
 import io.parrotsoftware.qatest.domain.models.Category
 import io.parrotsoftware.qatest.domain.models.Credentials

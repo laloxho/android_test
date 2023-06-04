@@ -1,4 +1,4 @@
-package io.parrotsoftware.qa_network.data
+package io.parrotsoftware.qanetwork.data
 
 enum class NetworkErrorType {
     CONNECTION_ERROR,

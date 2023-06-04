@@ -1,9 +1,9 @@
 package io.parrotsoftware.qatest.data.datasource.remote.impl
 
-import io.parrotsoftware.qa_network.data.requests.ApiAuthRequest
-import io.parrotsoftware.qa_network.data.requests.ApiUpdateProductRequest
-import io.parrotsoftware.qa_network.interactors.NetworkInteractor
-import io.parrotsoftware.qa_network.services.ParrotApi
+import io.parrotsoftware.qanetwork.data.requests.ApiAuthRequest
+import io.parrotsoftware.qanetwork.data.requests.ApiUpdateProductRequest
+import io.parrotsoftware.qanetwork.interactors.NetworkInteractor
+import io.parrotsoftware.qanetwork.services.ParrotApi
 import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import javax.inject.Inject
 

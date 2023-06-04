@@ -1,6 +1,6 @@
-package io.parrotsoftware.qa_network
+package io.parrotsoftware.qanetwork
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**

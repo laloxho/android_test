@@ -1,6 +1,6 @@
-package io.parrotsoftware.qa_network.interactors
+package io.parrotsoftware.qanetwork.interactors
 
-import io.parrotsoftware.qa_network.data.NetworkResult
+import io.parrotsoftware.qanetwork.data.NetworkResult
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 

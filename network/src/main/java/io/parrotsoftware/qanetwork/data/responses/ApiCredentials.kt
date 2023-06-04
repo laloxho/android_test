@@ -1,4 +1,4 @@
-package io.parrotsoftware.qa_network.data.responses
+package io.parrotsoftware.qanetwork.data.responses
 
 import com.squareup.moshi.Json
 

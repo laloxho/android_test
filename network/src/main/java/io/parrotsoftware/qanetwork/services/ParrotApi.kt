@@ -1,14 +1,14 @@
-package io.parrotsoftware.qa_network.services
+package io.parrotsoftware.qanetwork.services
 
-import io.parrotsoftware.qa_network.BuildConfig
-import io.parrotsoftware.qa_network.NetworkBuilder
-import io.parrotsoftware.qa_network.data.requests.ApiAuthRequest
-import io.parrotsoftware.qa_network.data.requests.ApiUpdateProductRequest
-import io.parrotsoftware.qa_network.data.responses.ApiCredentials
-import io.parrotsoftware.qa_network.data.responses.ApiListResponse
-import io.parrotsoftware.qa_network.data.responses.ApiProduct
-import io.parrotsoftware.qa_network.data.responses.ApiSingleResponse
-import io.parrotsoftware.qa_network.data.responses.ApiUserWithStores
+import io.parrotsoftware.qanetwork.BuildConfig
+import io.parrotsoftware.qanetwork.NetworkBuilder
+import io.parrotsoftware.qanetwork.data.requests.ApiAuthRequest
+import io.parrotsoftware.qanetwork.data.requests.ApiUpdateProductRequest
+import io.parrotsoftware.qanetwork.data.responses.ApiCredentials
+import io.parrotsoftware.qanetwork.data.responses.ApiListResponse
+import io.parrotsoftware.qanetwork.data.responses.ApiProduct
+import io.parrotsoftware.qanetwork.data.responses.ApiSingleResponse
+import io.parrotsoftware.qanetwork.data.responses.ApiUserWithStores
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header

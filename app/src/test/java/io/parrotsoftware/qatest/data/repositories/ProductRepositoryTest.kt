@@ -1,12 +1,12 @@
 package io.parrotsoftware.qatest.data.repositories
 
-import io.parrotsoftware.qa_network.data.NetworkError
-import io.parrotsoftware.qa_network.data.NetworkResult
-import io.parrotsoftware.qa_network.data.requests.ApiUpdateProductRequest
-import io.parrotsoftware.qa_network.data.responses.ApiListResponse
-import io.parrotsoftware.qa_network.data.responses.ApiProduct
-import io.parrotsoftware.qa_network.data.responses.ApiProductAvailability
-import io.parrotsoftware.qa_network.data.responses.ApiSingleResponse
+import io.parrotsoftware.qanetwork.data.NetworkError
+import io.parrotsoftware.qanetwork.data.NetworkResult
+import io.parrotsoftware.qanetwork.data.requests.ApiUpdateProductRequest
+import io.parrotsoftware.qanetwork.data.responses.ApiListResponse
+import io.parrotsoftware.qanetwork.data.responses.ApiProduct
+import io.parrotsoftware.qanetwork.data.responses.ApiProductAvailability
+import io.parrotsoftware.qanetwork.data.responses.ApiSingleResponse
 import io.parrotsoftware.qatest.data.datasource.local.LocalDataSource
 import io.parrotsoftware.qatest.data.datasource.remote.RemoteDataSource
 import io.parrotsoftware.qatest.data.toProduct
