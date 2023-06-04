@@ -11,7 +11,7 @@
 
         <variable
             name="item"
-            type="io.parrotsoftware.qatest.ui.list.ExpandableCategory" />
+            type="io.parrotsoftware.qatest.presentation.list.ExpandableCategory" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
