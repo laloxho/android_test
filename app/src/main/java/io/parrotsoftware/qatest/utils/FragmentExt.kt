@@ -1,5 +1,6 @@
 package io.parrotsoftware.qatest.utils
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -19,3 +20,5 @@ fun <T : Any, L : LiveData<T>?> LifecycleOwner.removeObservers(liveData: L) {
 
 fun Fragment.menuProvider(menuProvider: MenuProvider) =
     (requireActivity() as MenuHost).addMenuProvider(menuProvider, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+fun Fragment.supportActionBar() = (activity as AppCompatActivity).supportActionBar
